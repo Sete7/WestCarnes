@@ -1,0 +1,230 @@
+/*body {  font-family: 'Hagin Caps'; font-size: 13px; }
+h1, h2, h3, h4, h5 {  font-family: 'Hagin Caps';  font-weight: 500; margin: 0px; }
+
+.btn { text-transform: uppercase; font-size: 20px; padding: 2px; }
+.btn span:hover { background-color: #8e3031; color: #fff; }
+.btn span { padding: 0px 3px 0px 3px; }
+.btnDark {  border: solid 1px #fff; color: #624327;   }
+.btnDark span { background-color: #fff; }
+
+.btnLight {  border: solid 1px #624327; color: #fff; }
+.btnLight span { background-color: #624327; }
+.mmenu-toggle { position: absolute; top: 27px; right: 0px; background: none; font-size: 50px; border: none; color: #fff;    }
+
+
+header .groupHeader { display: flex; justify-content: space-between; align-items: center;  }
+header .logo {  background-color: #8e3031; height: 146px; width: 319px;  border-radius: 0px 0px 50px 50px; display: flex; align-items: center; flex-direction: column;  justify-content: center; }
+header .logo a { padding-right: 10px; padding-left: 10px; }
+header #menu { display: flex; flex-direction: column;  margin-left: 10px;  justify-content: center; margin-top: 10px; }
+header .navhorizontal { display: flex; align-items: flex-end; justify-content: flex-end;   }
+header #menu .linkNegocios { background-color: #ccb29a; color: #fff; text-transform: uppercase; font-size: 16px; border-radius: 5px; width: 75px; text-align: center; margin-bottom: 15px; align-self: flex-end;    } 
+header #menu .linkNegocios:hover{ background-color: #8e3031; }
+header .navhorizontal li { background-image: url("../../assets/imagens/dividerMenu.jpg"); background-repeat: no-repeat; background-position: left center; padding-left: 10px; padding-right: 10px; }
+header .navhorizontal li:first-child { padding-left: 0px; background-image: none; }
+header .navhorizontal li:last-child { padding-right: 0px;  }
+header .navhorizontal li a { font-size: 16px; color: #fff; text-transform: uppercase;  }
+header .navhorizontal li a:hover {  color:#8e3031; }
+header .navhorizontal .sub-menu {  padding-top: 10px; width: 100px; margin-left: -20px;  }
+header .navhorizontal .sub-menu li { padding-top: 10px; padding-bottom: 10px;  background-image: none; padding-left: 0px; padding-right: 0px; text-align: center; background-color: #8E3031; }
+header .navhorizontal .sub-menu li a:hover {  color:#000; }
+header .selected { color: #FFFFD7 !important;  }
+
+#tipoCarne { background-image: url("../../assets/imagens/dividerHomeTipoCarne.jpg"); background-position: top center; background-repeat: no-repeat; margin-top: -3px; background-color: #e5d8cc; padding-top: 50px; padding-bottom: 50px;  }
+#tipoCarne div { display: flex; justify-content: space-between; border-top: solid 3px #fff; border-bottom: solid 3px #fff; padding-top: 30px; padding-bottom: 30px; }
+#tipoCarne article { margin-left: 10px; overflow: hidden; width: 309px; height: 231px; border: solid 7px #624327; background-position: center center; background-repeat: no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#tipoCarne article:first-child { margin-left: 0px; }
+#tipoCarne article a { display: block; width: 100%; height: 231px; display: flex; flex-direction: column;  justify-content: center; }
+#tipoCarne article h3 { font-size: 48px; color: #fff; text-transform: uppercase; background-color: rgba(0,0,0,0.5); width: 100%; text-align: center; padding-top: 10px; padding-bottom: 10px; } 
+#tipoCarne #bovino { background-image: url("../../assets/imagens/tipoCarne.jpg") }
+#tipoCarne #aves { background-image: url("../../assets/imagens/tipoAves.jpg") }
+#tipoCarne #suinos { background-image: url("../../assets/imagens/tipoSuino.jpg") }
+
+#dicas { height: 600px; background-color: #fff; display: flex; align-items: center; justify-content: space-between; border-bottom: solid 13px #a18267; overflow: hidden;  }
+#dicas .groupTitle { width: 300px; z-index: 1;   }
+#dicas h1 { color: #624327; font-size: 70px; text-transform: uppercase; margin-bottom: 25px; }
+#dicas h1 span { color: #a18267; display: block; font-size: 80px; line-height: 55px; }
+#dicas .img01 { background-image: url("../../assets/imagens/frutas.jpg"); background-repeat: no-repeat; width: 429px; height: 760px;    }
+#dicas .img02 { background-image: url("../../assets/imagens/prato.jpg"); background-repeat: no-repeat; width: 936px; height: 756px;    }
+
+#churrasqueiros { background-image: url("../../assets/imagens/receitasHome.jpg"); background-position: top right; height: 600px; background-color: #fff; border-bottom: solid 13px #a18267; }
+#churrasqueiros .groupTitle { display: flex; align-items: center; justify-content: flex-end; align-content: flex-end;  height: 600px; text-align: right;  }
+#churrasqueiros h1 {  margin: 0px; font-size: 112px; text-transform: uppercase; color: #ccb29a;  text-shadow: 0px 0px 15px #000; margin-bottom: 15px; }
+#churrasqueiros h1 span { color: #fff; font-size: 51px; margin-top: 5px; display: block; border-top: solid 1px #fff;  }
+
+
+
+ INTERNAS 
+.internas .cortina { background-color: rgba(0,0,0, 0.5); position: absolute;  width: 100%;   left: 0px; display: none;  }
+.internas .borderFundo { margin: 0px 15px 15px 15px; margin-top: 15px; border: solid 3px #fff;   }
+
+#SobreTennessee .cortina {    margin-top: -118px;   }
+#SobreTennessee {  background-image: url("../../assets/imagens/fundoSobre.jpg"); background-attachment: fixed;  background-position: top right; margin-top: -5px; padding-top: 120px; padding-bottom: 120px;   }
+#SobreTennessee article { position: relative;  }
+#SobreTennessee h2 { text-transform: uppercase; font-size: 28px; }
+#SobreTennessee .sobre { margin-bottom: 50px; }
+#SobreTennessee .sobre h2 { color: #e0c2a7;  }
+#SobreTennessee p { color: #fff; font-family: 'BertholdAkzidenzGroteskBE'; font-size: 17px; line-height: 24px; }
+#SobreTennessee .black { background-color: rgba(0,0,0,0.5); width: 600px; padding: 20px; margin-bottom: 15px; margin-top: 15px;  }
+#SobreTennessee .black ul { list-style: disc; list-style-position: inside; font-size: 17px; color: #fff; font-family: 'BertholdAkzidenzGroteskBE'; margin-top: 15px; line-height: 24px; }
+#SobreTennessee .black h2 { color: #fff; }
+
+#tipoCortes .cortina {  margin-top: -15px;   }
+#tipoCortes article { position: relative;  }
+#tipoCortes { background-image: url("../../assets/imagens/fundoTipoCortes.jpg"); background-position: top left;  margin-top: 5px; padding-top: 15px;  padding-bottom: 1px; }
+
+#tipoCortes ul { display: flex; justify-content: space-between; }
+#tipoCortes ul { color: #fff; }
+#tipoCortes ul i {    }
+#tipoCortes ul li a { color: #fff; display: flex;  flex-direction: column; align-items: center; justify-content: flex-end;   }
+#tipoCortes ul li a:hover { color: #8e3031;  }
+#tipoCortes ul li { display: flex;  justify-content: flex-end;  }
+#tipoCortes ul li h3 { font-size: 26px; margin-top: 15px; }
+#tipoCortes ul .bovino { font-size: 170px;  }
+#tipoCortes ul .suino { font-size: 170px;  }
+#tipoCortes ul .galinha { font-size: 120px;  }
+#tipoCortes ul .outros { font-size: 100px;  }
+#tipoCortes .barIntro { color: #fff; display: flex;  align-items: center; margin-top: 60px; margin-bottom: 60px;  }
+#tipoCortes .barIntro h1 { width: 250px; font-size: 24px; text-align: center; font-family: 'BertholdAkzidenzGroteskBE'; text-transform: uppercase; letter-spacing: -2px;  }
+#tipoCortes .barIntro h1 span { font-size: 36px; }
+#tipoCortes .barIntro div { border-left: solid 2px #fff; margin-left: 10px; padding-left: 10px; }
+#tipoCortes .barIntro p { font-family: 'BertholdAkzidenzGroteskBE'; font-size: 18px;  }
+
+#tipoCortesDentro .cortina {  margin-top: -15px;   }
+#tipoCortesDentro { background-image: url("../../assets/imagens/fundoTipoCortesDentro.jpg"); background-position: top left;  margin-top: 5px; padding-top: 5px;  padding-bottom: 1px; } 
+#tipoCortesDentro article { margin-bottom: 60px; display: flex; justify-content: space-between; padding-top: 75px; padding-bottom: 75px; background-image: url("../../assets/imagens/itemFundoProd.png"); background-repeat: no-repeat; background-position: bottom left;   }
+#tipoCortesDentro .indice { width: 30%;  }
+#tipoCortesDentro .indice h1 { color: #fff; font-size: 35px; margin-bottom: 15px; }
+#tipoCortesDentro  h1 { color: #fff; font-size: 35px; margin-bottom: 15px; }
+#tipoCortesDentro .navegacao { margin-bottom: 30px; }
+#tipoCortesDentro .navegacao ul { display: flex; flex-direction: row; }
+#tipoCortesDentro .navegacao ul li {  margin-right: 5px;  }
+#tipoCortesDentro .navegacao ul li a { color: #fff; }
+#tipoCortesDentro .navegacao ul li a:hover {  color: #8e3031; }
+#tipoCortesDentro .listagem { margin-left: 10px; }
+#tipoCortesDentro .indice ul li {color: #fff; font-size: 18px; line-height: 24px; cursor: pointer; }
+#tipoCortesDentro  ul li {color: #fff; font-size: 18px; line-height: 24px; cursor: pointer; }
+#tipoCortesDentro .listagem li:hover {color: #8e3031; font-size: 20px;  }
+#tipoCortesDentro .indice ul .selected { color: #8e3031; font-size: 20px; }
+
+#tipoCortesDentro .barContent { width: 60%; display: flex; flex-direction: column; align-items: center; }
+#tipoCortesDentro .bovinoImg { width: 250px; height: 177px; }
+#tipoCortesDentro .barContent .paperBar { background-color: #f7f7f7; padding: 10px; -webkit-box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.75); box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.75);   }
+#tipoCortesDentro .barContent .paperBar span { width: 100%; }
+#tipoCortesDentro .barContent .paperBar div {  border: solid 2px #a18267; padding: 15px; text-align: center; justify-content: center; min-height: 500px; display: flex; flex-wrap: wrap;   }
+#tipoCortesDentro .barContent .paperBar h2 { font-size: 48px; color: #a18267; text-align: left;   }
+#tipoCortesDentro .barContent .paperBar p { font-size: 17px; color: #a18267; text-align: left;  font-family: 'BertholdAkzidenzGroteskBE';  }
+#tipoCortesDentro .barContent .paperBar img {  }
+#tipoCortesDentro .barContent .paperBar a { align-self: flex-end;  }
+
+
+#buscaLoja article {  }
+#buscaLoja h2 { text-align: center; font-size: 30px; color: #624327; margin-top: 30px; }
+#buscaLoja .groupForm { margin-top: 60px; margin-bottom: 60px; }
+#buscaLoja .feature { font-size: 24px; text-align: center;  color: #A18267; display: block; width: 650px; margin-left: auto; margin-right: auto; } 
+#buscaLoja .groupForm { display: flex; align-items: center; justify-content: space-between; }
+#buscaLoja .groupForm img { margin-right: 35px; }
+#buscaLoja .groupForm input { border: solid 1px #8E3031;  font-size: 26px; padding: 5px; color: #999; width: 350px;  }
+#buscaLoja .groupForm .icon { font-size: 28px; color: #ccb29a; cursor: pointer; }
+#buscaLoja .groupForm .icon:hover { color: #8E3031;  }
+#buscaLoja .enderecos { display: none;  }
+#buscaLoja .enderecos p { font-size: 16px; }
+#buscaLoja  ul li  { margin-bottom: 20px; }
+#buscaLoja  ul li h3 { cursor: pointer; text-transform: uppercase; font-size: 22px; color: #fff; background-color: #624327; width: 300px; padding: 5px; display: flex; justify-content: space-between; }
+#buscaLoja .result  address { font-size: 16px; color: #666;   }
+
+
+#churrasqueiro { display: flex; flex-direction: column; align-items: center; background-image: url("../../assets/imagens/fundoTipoCortesDentro.jpg");  background-position: top left;  margin-top: -5px; padding-top: 15px;  }
+#churrasqueiro article { display: flex; flex-wrap: wrap; align-items: center; justify-content: center;   }
+
+#churrasqueiro .tabua { z-index: 1; width:576px; height: 900px;  background-image: url("../../assets/imagens/tabuaMadeira.png"); display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 30px;}
+#churrasqueiro .tabua ul li { margin-top: 10px; }
+#churrasqueiro .tabua ul a { color: #fff; font-size: 18px;  }
+#churrasqueiro .tabua ul a:hover { color: #000; }
+#churrasqueiro .paper { border-right: solid 4px #fff; border-left: solid 4px #fff; border-bottom: solid 4px #fff; border-top: solid 10px #fff;  background-color: #fff;  width: 550px;  margin-left: -150px; min-height: 680px; margin-top: 50px; background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(224,218,199,1) 100%); background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(224,218,199,1) 100%);}
+#churrasqueiro .paper .recuo { overflow: hidden;  margin-top: 20px; height: 500px; background-image: url("../../assets/imagens/sombraPaper.png"); background-repeat: no-repeat; background-position: top center;  padding-left: 120px; padding-right: 70px; padding-top: 30px;  }
+#churrasqueiro .paper h3 { font-size: 24px; margin-top: 20px; }
+#churrasqueiro .paper p {  font-family: 'BertholdAkzidenzGroteskBE';  font-size: 15px;  }
+#churrasqueiro .dicaOuro { }
+#churrasqueiro .dicaOuro  { margin-top: -200px;  border-top: solid 2px #fff; border-left: solid 2px #fff; border-right: solid 2px #fff; border-radius: 30px 30px 0px 0px; text-align: center; background-color: #624327; width: 600px; padding: 20px;  z-index: 2;  }
+#churrasqueiro .dicaOuro p { color: #fff; font-size: 17px; }
+#churrasqueiro .dicaOuro p span { font-size: 22px; }
+#churrasqueiro .dicaOuro h3 { color: #B4933E; font-size: 36px; text-transform: uppercase; }
+
+#forms article { padding-top: 60px; padding-bottom: 60px; }
+#forms .formGrupo { margin-bottom: 10px; }
+#forms input { width: 100%; border: solid 3px #e2d9da; border-radius: 5px; font-size: 17px; padding: 5px; color: #8E3031;  }
+#forms textarea { width: 100%; border: solid 3px #e2d9da; border-radius: 5px; font-size: 17px; padding: 5px; font-size: 14px; color: #8E3031; }
+#forms button { border: none; background-color: #e0dada; color: #8e3031; border-radius: 5px; font-size: 17px; padding: 10px; }
+#forms button:hover { background-color: #8e3031; color: #fff; }
+#forms ul { display: flex; text-align: center; justify-content: space-between; margin-bottom: 20px; background-color: #E2DADA; padding: 25px; border-radius: 20px; }
+#forms ul li {  color: #b1a8a9; cursor: pointer;  }
+
+#forms ul .selected { color: #8e3031; }
+#forms ul li:hover { color: #8e3031; }
+#forms ul li .icon { font-size: 48px; margin-bottom: 10px; display: block;  }
+#forms  .tipo { margin-right: auto; margin-left: auto; max-width:400px; flex-basis: 400px; }
+#forms .anexar input { font-size: 13px;  }
+
+#forms .msg { display: block; text-align: center; margin-bottom: 30px; color: #8E3031; font-size: 18px; }
+
+.receitaBovina { background-image: url("../../assets/imagens/fundoReceitaBovino.jpg");  }
+.receitaSuina { background-image: url("../../assets/imagens/fundoReceitaSuino.jpg");  }
+.receitaAves { background-image: url("../../assets/imagens/fundoReceitaAves.jpg");  }
+#receitas {  height: 1900px; background-repeat: no-repeat; background-position: top center; }
+#receitas .barReceitas { background-image: url("../../assets/imagens/livro.png"); top:843px; left: -50px; width: 1263px; height: 1057px; position: absolute;   }
+#receitas .receitasDentro { padding-top: 300px; }
+#receitas .barReceitas { display: flex; flex-direction: column; align-items: center;  }
+#receitas .listaReceitas { margin-left: 130px; margin-top: 150px; }
+#receitas .listaReceitas ul {  height: 400px; overflow: hidden; width: 400px; padding-bottom: 30px; }
+#receitas .listaReceitas ul li a { font-size: 19px; color: #624327; line-height: 30px; text-transform: uppercase; }
+#receitas .listaReceitas ul li a:hover { color: #8E3031;  }
+#receitas .social { color: #fff; position: absolute; bottom: 0px; padding: 20px; margin-top: 35px; width: 350px; height: 300px; background: -moz-linear-gradient(top, rgba(98,66,39,1) 0%, rgba(98,66,39,1) 49%, rgba(98,66,39,0) 100%);  background: -webkit-linear-gradient(top, rgba(98,66,39,1) 0%, rgba(98,66,39,1) 49%, rgba(98,66,39,0) 100%); background: -ms-linear-gradient(top, rgba(98,66,39,1) 0%, rgba(98,66,39,1) 49%, rgba(98,66,39,0) 100%); }
+#receitas .social h3 { font-size: 28px; margin-bottom: 20px; }
+#receitas .social a { font-size: 20px; color: #fff; margin-bottom: 20px;  }
+#receitas .social span { font-size: 20px; }
+#receitas .header {  width: 300px; text-align: center;  }
+#receitas  h1 { font-size: 72px; color: #fff;  }
+#receitas  h1 .t1 { display: block; font-size: 24px;  }
+#receitas  h1 .t2 { font-size: 82px; }
+#receitas  .divider { margin-top: 30px; margin-bottom: 30px;   }
+
+#bannerReceita { background-image: url("../../assets/imagens/banner/bannerReceitaInfo.jpg");  height: 690px; background-repeat: no-repeat; background-position: top center; }
+#bannerReceita .header { padding-top: 230px;  width: 300px; text-align: center;  }
+#bannerReceita  h1 { font-size: 72px; color: #fff;  }
+#bannerReceita  h1 .t1 { display: block; font-size: 24px;  }
+#bannerReceita  h1 .t2 { font-size: 82px; }
+#bannerReceita  .divider { margin-top: 30px; margin-bottom: 30px;   }
+
+#receitasInfo .titulo { height: 90px; display: flex; justify-content: space-between;  align-items: center; }
+#receitasInfo h2 { text-transform: uppercase; text-align: center; font-size: 28px; color: #8E3031; width: 600px;  display: block;   }
+#receitasInfo .barHead { background-color: #8E3031; }
+#receitasInfo .head { display: flex; align-items: center;  justify-content: center;  }
+#receitasInfo .head figure {  background-color: #fff; width: 40%; margin: 0px; padding: 20px; border-top: solid 1px #CEB39B; border-bottom: solid 1px #CEB39B;  }
+#receitasInfo .head div { margin-left: 70px; color: #fff; display: flex; flex-direction: column; }
+#receitasInfo .head .icon { font-size: 48px; display: block; margin-right: 30px; } 
+#receitasInfo .head span { font-size: 18px; display: flex; align-items: center; margin-bottom: 30px; }
+#receitasInfo .head span:last-child { margin-bottom: 0px; }
+#receitasInfo .content h3 { font-size: 24px; color: #8E3031; }
+#receitasInfo .content {   padding-top: 40px; padding-bottom: 40px;  background-image: url("../../assets/imagens/fundoReceitaItem.jpg"); background-repeat: no-repeat; background-position: center right;}
+#receitasInfo .content p { font-family: 'BertholdAkzidenzGroteskBE'; font-size: 17px; line-height: 30px;  }
+
+
+footer { background-color: #8e3031;   }
+footer .group { display: flex; justify-content: space-between; height: 175px; align-items: center;  }
+footer #logo {  display: block;   }
+footer nav {   text-align: left;   }
+footer nav a  { color: #fff; font-size: 18px; line-height: 25px; }
+footer .icon { font-size: 36px; margin-right: 5px; color: #fff; }
+footer .group div {   text-align: center;  }
+footer .group .social { display: flex;  align-items: center; justify-content: center;  font-family: 'Bariol'; color: #fff; font-size: 18px; }
+footer .group .social span { margin-top: -7px; }
+footer .logo { width: 180px; }
+
+
+
+
+
+
+
+
+*/
