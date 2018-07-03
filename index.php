@@ -11,10 +11,10 @@
         <link href="<?= REQUIRE_PATH; ?>/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="<?= REQUIRE_PATH; ?>/css/boot.css" rel="stylesheet" type="text/css"/>        
         <link href="<?= REQUIRE_PATH; ?>/img/favicon.png" rel="shortcut icon">  
-        <!--        <link href="<?=HOME; ?>/css/reset.css" rel="stylesheet" type="text/css"/>-->
+        <!--        <link href="<?= HOME; ?>/css/reset.css" rel="stylesheet" type="text/css"/>-->
         <link href="<?= REQUIRE_PATH; ?>/css/estilo.css" rel="stylesheet" type="text/css"/>         
         <link href="<?= REQUIRE_PATH; ?>/css/layerslider.css" rel="stylesheet" type="text/css"/>
-
+        <link href="<?= REQUIRE_PATH; ?>/css/media.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
@@ -25,7 +25,7 @@
                 <div class="box_menu">
                     <!----------------------LOGO------------------------->              
                     <div class="main_logo">
-                        <a href="<?=HOME; ?>/index" class="logo">
+                        <a href="<?= HOME; ?>/index" class="logo">
                             <img src="<?= REQUIRE_PATH; ?>/img/logo-west" class="logo_west" alt="" title="Bem Vindo a West Carnes"/>
                         </a>
                     </div>           
@@ -34,13 +34,39 @@
                     <nav class="main_nav">
                         <h1 class="font-zero">Menu West Carnes</h1>
                         <ul class="menu">
-                            <li><a href="<?=HOME; ?>/index" title="Home">Inicial</a></li>
-                            <li><a href="<?=HOME; ?>/quem-somos" title="Quem Somos">Quem Somos</a></li>
-                            <li><a href="<?=HOME; ?>/produtos" title="Produtos">Produtos</a></li>
-                            <li><a href="<?=HOME; ?>/receitas" title="Receitas">Receitas</a></li>
-                            <li><a href="<?=HOME; ?>/contato" title="Fale Conosco">Fale Conosco</a></li>
+                            <li><a href="<?= HOME; ?>/index" title="Home">Inicial</a></li>
+                            <li><a href="<?= HOME; ?>/quem-somos" title="Quem Somos">Quem Somos</a></li>
+                            <li><a href="<?= HOME; ?>/produtos" title="Produtos">Produtos</a></li>
+                            <li><a href="<?= HOME; ?>/receitas" title="Receitas">Receitas</a></li>
+                            <li><a href="<?= HOME; ?>/contato" title="Fale Conosco">Fale Conosco</a></li>
                         </ul>
                     </nav>
+
+                    <!-------------------------MENU MOBILE---------------------------->
+                    <div class="box-mobile">
+                        <button class="sidebarBtn">
+                            <span></span>
+                        </button>
+
+                        <nav class="main_nav_mob">
+                            <h1 class="font-zero">Navegação segura Mobile</h1>
+                            <!----------------------LOGO MOBI------------------------->              
+                            <div class="box-logo-mobi">
+                                <a href="<?= HOME; ?>/index" class="logo-mobi">
+                                    <img src="<?= REQUIRE_PATH; ?>/img/logo-west" class="logo_west" alt="" title="Bem Vindo a West Carnes"/>
+                                </a>
+                            </div> 
+                            
+                            <ul class="menu-mobi">
+                                <li><a href="<?= HOME; ?>/index" title="Home">Inicial</a></li>
+                                <li><a href="<?= HOME; ?>/quem-somos" title="Quem Somos">Quem Somos</a></li>
+                                <li><a href="<?= HOME; ?>/produtos" title="Produtos">Produtos</a></li>
+                                <li><a href="<?= HOME; ?>/receitas" title="Receitas">Receitas</a></li>
+                                <li><a href="<?= HOME; ?>/contato" title="Fale Conosco">Fale Conosco</a></li>
+                            </ul>                       
+                        </nav>
+                    </div>
+
 
                     <div class="clear"></div>
                 </div>
@@ -66,7 +92,7 @@
             <div class="content">
                 <section class="logo_footer column column-3">
                     <h1 class="font-zero">West Carnes Resumo</h1>
-                    <a href="<?=HOME; ?>/index" class="lg_footer">
+                    <a href="<?= HOME; ?>/index" class="lg_footer">
                         <img src="<?= REQUIRE_PATH; ?>/img/logo-footer" alt="" title="West Carnes"/>
                     </a>                
                 </section>
@@ -76,9 +102,9 @@
                     <article class="menu_informe">
                         <h1 class="font-zero">Contato, Trabalho e FAQ.</h1>
                         <ul class="menu_footer">
-                            <li><a href="<?=HOME; ?>/contato" title="Contato">Contato</a> </li>
-                            <li><a href="<?=HOME; ?>/trabalhe-conosco" title="Trabalhe Conosco">Trabalhe Conosco</a> </li>
-                            <li><a href="<?=HOME; ?>/faq" title="FAQ">FAQ</a> </li>
+                            <li><a href="<?= HOME; ?>/contato" title="Contato">Contato</a> </li>
+                            <li><a href="<?= HOME; ?>/trabalhe-conosco" title="Trabalhe Conosco">Trabalhe Conosco</a> </li>
+                            <li><a href="<?= HOME; ?>/faq" title="FAQ">FAQ</a> </li>
                         </ul>
                     </article>                
                 </section>
@@ -97,7 +123,8 @@
                             <span title="Instagram"> @WESTCARNES</span>
                         </a>
                         <span></span>
-                    </article>                
+                    </article> 
+
                     <article class="face column column-6">
                         <h1 class="font-zero">Facebock</h1>                    
                         <a href="https://www.facebook.com/westcarnes" target="_blanck">
@@ -124,5 +151,15 @@
         <script src="<?= REQUIRE_PATH; ?>/js/layerslider.transitions.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/filtragem.js" type="text/javascript"></script>
+
+        <script>
+            $(document).ready(function () {
+                $(".sidebarBtn").click(function () {
+                    $(".main_nav_mob").toggleClass('active');
+                    $(".sidebarBtn").toggleClass('toggle');
+                });
+            });
+
+        </script>
     </body>
 </html>

@@ -1,8 +1,8 @@
-<div class="box-banner-receitas container">
+<!--<div class="box-banner-receitas container">
     <figure class="banner-receitas">        
         <img src="<?= REQUIRE_PATH; ?>/img/fundo-produto.jpg" alt=""/>
     </figure>
-</div>
+</div>-->
 <main class="main_single-receitas container">
     <div class="des-receita">
         <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt="" style="width: 30%;"/>
