@@ -1,8 +1,4 @@
-#banner{position: relative;}
-#banner .colo-rgba-slyde{width: 100%;height: 100%; background: rgba(0,0,0,0.5);position: absolute;top: 0;float: left;z-index: 50;}
-
-/*----------------------CABECALHO----------------------*/
-/*.main_cabecalho{background: rgba(0,0,0,0.5);height: 161px;float: left;}*/
+/*----------------------PAGE INDEX RAIZ CABECALHO----------------------*/
 .main_cabecalho { z-index: 9000; position: absolute; width: 100%; background-color: rgba(0, 0, 0, 0.6); padding-bottom: 15px; }
 .box_menu{width: 100%;}
 .main_logo{width: 40%; position: relative;}
@@ -13,78 +9,45 @@
 .menu li{display: inline-block;position: relative;margin: 30px 2% 45px 0; }
 .menu li a{color: #FFD400;font-size: 1.2em; text-transform: uppercase; transition: 0.5s ease;}
 .menu li a:hover{color: #CA9800;}
-
-/*-----------------------------------------------LOGO MENU MOBI----------------------*/
+/*-----------------------------------------------PAGE INDEX RAIZ LOGO MENU MOBI----------------------*/
 .box-logo-mobi{display: none;}
-
-/*-----------------------------------------------MENU MOBI----------------------*/
+/*-----------------------------------------------PAGE INDEX RAIZ MENU MOBI----------------------*/
 .main_nav_mob{display: none;}
-
 .slide{float: left;}
 .slide img{float: left;}
-
-/*------------------- SECTION QUEM SOMOS -----------------*/
+.sidebarBtn{display: none;}
+/*-------- PAGE INDEX BACKGROUND SLYDES RGBA ESCURA -----------*/
+#banner{position: relative;}
+#banner .colo-rgba-slyde{width: 100%;height: 100%; background: rgba(0,0,0,0.5);position: absolute;top: 0;float: left;z-index: 50;}
+/*-------- PAGE INDEX SECTION QUEM SOMOS -----------*/
 .main_west{float: left;}
-
-.sec_quem{ 
-    width: 100%;
-    height: 565px;
-    /*background: url(../img/fundo-quem.png) #000 center center;*/
-    background:  #d9a300;
-    float: left;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.sec_produto{ 
-   clear: both;
-    width: 100%;
-    /*height: 565px;*/
-    /*background: url(../img/fundo-preto.png) #dedede center center;*/    
-    background:  #111111;
-    background-size: cover;
-    background-repeat: no-repeat;
-    float: left;
-    background-position: center center;
-    /*margin-bottom: 50px;*/
-    margin-bottom: 0px; 
-    padding-bottom: 35px !important;
-}
-/*.sec_produto .art_produtos .box-tipo .thumb-tipo{margin-bottom: 50px;}*/
-
+.sec_quem{width: 100%; background:  #d9a300; float: left;padding: 25px 0 50px 0;}
+.sec_produto{ clear: both;width: 100%;background:  #111111;float: left; margin-bottom: 0px;padding-bottom: 35px;}
 .art_quem{width: 100%;position: relative;}
 .art_quem .header_quem{width: 100%;position: relative;margin-top: 25px; margin-bottom: 60px;float: left;}
-.header_quem .line_a:after{content: ""; display: block;width: 100%;height: 2px; background: #FFFF4D;margin: 0 10px;}
+.header_quem .line_a,.line_b{color: #d9a300; }
+.header_quem .line_a:after{content: ""; display: block;width: 100%;height: 2px; background: #FFFF4D;margin: 0 10px;color: #d9a300; }
 .header_quem .titulo_quem{font-size: 3em; font-weight: bold;color: #FFFF4D;text-align: center; }
-.header_quem .line_b:after{content: ""; display: block;width: 100%;height: 2px; background: #FFFF4D;margin: 0 10px;}
-
+.header_quem .line_b:after{content: ""; display: block;width: 100%;height: 2px; background: #FFFF4D;margin: 0 10px;color: transparent;}
 .desc_quem{width: 100%;padding: 0 20%;}
 .desc_quem p {text-align: justify;font-size: 1.2em;color:#FFFF4D;margin-bottom: 25px; }
-
 .btn_quem_somos{width: 40%;border-radius: 8px;  margin: 25px 30%; height: 10%;text-align: center;font-size: 2em;font-weight: bold; background: #FFFF4D;color: #D9A300;border: 1px solid #FFFF4D;}
 .btn_quem_somos:hover{background: #e8e844;color: #CA9800;}
-
+/*--------- PAGE INDEX SECTION CATEGORIAS DE PRODUTOS --------*/
 .sec_produto figure{width: calc( 33.33333333333333% - 20px); margin: 30px 10px 0 10px;float: left;position: relative;}
 .sec_produto figure .box_pdr{position: absolute;width: 73%; height: 73px;background: rgba(0,0,0,0.7); bottom: 25px; margin-left: 4.3%;}
-.sec_produto figure .box_pdr{
-    -ms-transform: skewX(-13deg); /* IE 9 */
-    -webkit-transform: skewX(-13deg); /* Safari */
-    transform: skewX(-13deg); /* Standard syntax */    
-}
+.sec_produto figure .box_pdr{ -ms-transform: skewX(-13deg); /* IE 9 */ -webkit-transform: skewX(-13deg); /* Safari */ transform: skewX(-13deg); /* Standard syntax */ }
 .sec_produto figure figcaption{position: absolute;width: 75%; height: 73px; bottom: 25px; margin-left: 1.9%;}
 .sec_produto figure figcaption h1{color: #fff; font-weight: bold;text-align: center;    padding-top: 20px;}
+/*--------- PAGE INDEX SECTION MENU BOVINO/AVES... --------*/
+.sec_menu_receitas{float: left;}
+.sec_menu_receitas .box_receitas{width: 100%; position: relative;}
+.sec_menu_receitas .box_receitas .menu_receitas{width: 30%;right: 60px;position: absolute; top: 500px;font-size: 3em;}
+.sec_menu_receitas .box_receitas .menu_receitas li{border-bottom: 1px dotted #000;}
+.sec_menu_receitas .box_receitas .menu_receitas li a{color: #000;}
+.sec_menu_receitas .box_receitas .menu_receitas li a:hover{color: #CA9800;}
 
-.receitas .box_receitas{width: 100%; position: relative;}
-.receitas .box_receitas .menu_receitas{width: 30%;right: 60px;position: absolute; top: 500px;font-size: 3em;}
-.receitas .box_receitas .menu_receitas li{border-bottom: 1px dotted #000;}
-.receitas .box_receitas .menu_receitas li a{color: #000;}
-.receitas .box_receitas .menu_receitas li a:hover{color: #CA9800;}
-
-.banner{float: left;}
-.banner .box_quem_somos img{width: 100%; background-size: cover;}
-
-
-/*----------------------------------QUEM SOMOS ---------------------------------------*/
+/*----------------------------------PAGE QUEM SOMOS ---------------------------------------*/
 .main_quem{background: #000;}
 .desc_quem_somos .box_descricao p{color: #FFFF4C; text-align: justify;margin-bottom: 40px;}
 .box_descricao{margin-top: 60px;}
@@ -94,46 +57,23 @@
 .box_mais h1{color: #000;margin-bottom: 25px; font-size: 2em; font-weight: bold;}
 .box_mais p{color: #000;}
 
-/*----------------------------------CONTATO ---------------------------------------*/
+/*---------------------------------- PAGE CONTATO ---------------------------------------*/
 .main_contato{background: #000;}
 .main_contato .form_contato{padding: 35px 25%;}
 .main_contato .form_contato label{color: #000;margin: 20px 0;font-size: 1.3em;}
 .main_contato .form_contato input, textarea{background: transparent;}
-.main_contato .form_contato .enviar{
-    width: 35%;
-    height: 57px;
-    font-size: 1.5em;
-    margin: 14px 0 31px 0;
-    font-weight: bold;
-    color: #000;
-    background: #FFBF00;
-    border: 1px solid #FFBF00;
-    position: relative;
-}
+.main_contato .form_contato .enviar{width: 35%;height: 57px;font-size: 1.5em;margin: 14px 0 31px 0;font-weight: bold;color: #000;background: #FFBF00; border: 1px solid #FFBF00; position: relative;}
 .main_contato .form_contato .enviar:hover{background: #CA9800;border: 1px solid #CA9800; }
 
+/*---------------------------------- PAGE TRABALHE CONOSCO ------------------------------*/
+.trabalhe{background: url(../img/trabalhe-conosco1.jpg); background-repeat: no-repeat;background-size: cover;width: 100%;}
 
-.trabalhe{
-    background: url(../img/trabalhe-conosco1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;   
-}
-/*----------------------------------PRODUTO ---------------------------------------*/
-.main_produto{
-    background: url(../img/fundo-carne_1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;    
-}
-
+/*----------------------------------PAGE PRODUTO ---------------------------------------*/
+.main_produto{background: url(../img/fundo-carne_1.jpg); background-repeat: no-repeat; background-size: cover; width: 100%;}
 .main_produto .box-produtos{width: 100%;margin: 50px 0 100px 0;}
 .main_produto .box-produtos .category_list{width: 100%;}
 .main_produto .box-produtos .category_list a{color: #333;float: left;width: calc(25% - 20px);margin: 0 10px;position: relative;}
 .main_produto .box-produtos .category_list a img{width: 100%;}
-/*.main_produto .box-produtos .category_list .category_item  .tipo{width: 100%; position: absolute;bottom: 25px; background: rgba(255,255,255,0.5);padding: 5px;}
-.main_produto .box-produtos .category_list .category_item  .tipo h1{width: 100%;color: #e2bc00;font-weight: bold;text-align: center;}*/
-
 .lista_produtos{width: 100%; height: auto; float: left;}
 .secao{width: 100%;float: left;}
 .secao .thumb-geral-pdr .desc-produto{width: 100%;clear: both;margin: 30px 0 10px 0;}
@@ -143,44 +83,8 @@
 .header_img{overflow: hidden; }
 .header_img img{max-width: 100%; transition: all 0.3s;}
 .header_img:hover img{transform: scale(1.2);}
-
-/*------------------------------------ FAQ ----------------------------------*/
-.main_faq{background: #fff;position: relative;}
-.main_faq .sec_faq{
-    padding: 50px;
-    background: url(../img/faq1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-}
-.main_faq .form_faq{padding: 0 200px;}
-.main_faq .form_faq h1{margin: 50px 0; color: #000;text-align: center;}
-.main_faq .form_faq h1:after{content: ""; width: 60%;height: 3px;background: #FFBF00;display: block;margin: 5px 20%;}
-.main_faq .form_faq label{margin: 10px 0; color: #000;}
-.main_faq .form_faq input, .text-faq{border: 1px solid #ccc;background: transparent;}
-.main_faq .form_faq input:hover, .text-faq:hover{border: 1px solid #000; }
-.main_faq .form_faq .btn-faq{ width: 35%;
-                              height: 57px;
-                              font-size: 1.5em;
-                              margin: 14px 0 31px 0;
-                              font-weight: bold;
-                              color: #000;
-                              background: #FFBF00;
-                              border: 1px solid #FFBF00;
-                              position: relative;
-}
-
-.main_faq .form_faq .btn-faq:hover{background: #CA9800;border: 1px solid #CA9800; }
-
-/*-----------------------------------------------------SINGLE PRODUTO------------------------------------------------*/
-.main_single_produto{
-    background: url(../img/fundo-carne.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%; 
-    padding: 300px 0 100px 0;
-}
-
+/*----------------------------------------------------- PAGE SINGLE PRODUTO------------------------------------------------*/
+.main_single_produto{background: url(../img/fundo-carne.jpg);background-repeat: no-repeat;background-size: cover; width: 100%; padding: 300px 0 100px 0;}
 .categoria{width: 35%;float: left;}
 .categoria .titulo-categoria{color: #fff;font-weight: bold;font-size: 3em;}
 .categoria li{display: block; margin-bottom: 5px;}
@@ -192,13 +96,28 @@
 .thumb-single-pdr .border-thumb .desc-single-produto h1{font-size: 2.5em;color: #333; }
 .thumb-single-pdr .border-thumb  p{font-size: 1.3em;color: #333; text-align: justify;margin: 25px 0 0 0;}
 
+/*------------------------------------ PAGE FAQ ----------------------------------*/
+.main_faq{background: #fff;position: relative;}
+.main_faq .sec_faq{ padding: 50px; background: url(../img/faq1.jpg); background-repeat: no-repeat; background-size: cover;}
+.main_faq .form_faq{padding: 0 200px;}
+.main_faq .form_faq h1{margin: 50px 0; color: #000;text-align: center;}
+.main_faq .form_faq h1:after{content: ""; width: 60%;height: 3px;background: #FFBF00;display: block;margin: 5px 20%;}
+.main_faq .form_faq label{margin: 10px 0; color: #000;}
+.main_faq .form_faq input, .text-faq{border: 1px solid #ccc;background: transparent;}
+.main_faq .form_faq input:hover, .text-faq:hover{border: 1px solid #000; }
+.main_faq .form_faq .btn-faq{ width: 35%; height: 57px;font-size: 1.5em;margin: 14px 0 31px 0;font-weight: bold;color: #000; background: #FFBF00;border: 1px solid #FFBF00; position: relative;}
+.main_faq .form_faq .btn-faq:hover{background: #CA9800;border: 1px solid #CA9800; }
+
 /*-----------------------------------------------------PAGE RECEITA------------------------------------------------*/
+.banner-receita{position: relative;}
+.banner-receita .box-banner-rec{width: 100%;height: 100%;}
+.banner-receita .box-banner-rec .box-camada{width: 100%;height: 100%;background: rgba(0,0,0,0.4);position: absolute;}
 .main_receita{position: relative;}
 .main_receita .box-receita{width: 100%;}
-.box-titulo-receitas{width: 100%;float: left;background: #FFBF00; margin-bottom: 50px;border-top: 164px solid #CA9800;}
+.box-titulo-receitas{width: 100%;float: left;background: #FFBF00; margin-bottom: 50px;border-top: 3px solid #CA9800;border-bottom: 3px solid #CA9800;}
 .box-titulo-receitas h1{color: #b78b05; text-align: center;}
 .main_receita .box-receita a {width: calc(25% - 20px); margin: 25px 10px;float: left;border-radius: 8px;transition: 0.3s;}
-.main_receita .box-receita a:hover {box-shadow: 1px 0px 0px 2px #dedede;}
+.main_receita .box-receita a:hover {box-shadow: 1px 12px 15px 2px #756969;}
 .main_receita .box-receita a .thumb-receita img{border-radius: 8px 8px 0 0;}
 .main_receita .box-receita a .desc-receita{padding: 15px 8px;float: left;color: #7a7a7a;}
 .main_receita .box-receita a .desc-receita span{font-size: 0.8em;}
@@ -207,43 +126,52 @@
 .box-btn-rec{float: left;width: 100%; margin: 50px 0;}
 .box-btn-rec .btn-receitas{width: 40%; margin: 0 30%;background: #FFBF00;border: 1px solid #FFBF00; }
 .box-btn-rec .btn-receitas:hover{background: #CA9800;border: 1px solid #CA9800; }
-
 /*-----------------------------------------------------PAGE SINGLE-RECEITA------------------------------------------------*/
+.banner-single-receita{position: relative;}
+.banner-single-receita .box-single-rec{width: 100%;height: 100%;}
+.banner-single-receita .box-single-rec .box-single-camada{width: 100%;height: 100%;background: rgba(0,0,0,0.4);position: absolute;}
+
 .des-receita{width: 100%;background: #FFBF00;float: left;border-top: 1px solid #CA9800;border-bottom: 1px solid #CA9800;position: relative;}
 .des-receita img{border: 15px solid #fff;}
 .des-receita .box-titulo-sing{background: rgba(255,255,255,0.5);float: left;position: absolute;width: 30%;height: 100px;bottom: 0;padding: 25px 0;}
 .des-receita .box-titulo-sing h1{font-weight: bold;color: #FFBF00;text-align: center;}
-
-.box-desc-receita{width: 60%; margin: 50px 20%;float: left;}
+.box-desc-receita{width: 60%; margin: 50px 0;float: left;}
 .box-desc-receita h1{color: #FFBF00;font-weight: bold;font-size: 2em;margin-bottom: 25px;text-shadow: 0px 3px 0px #CA9800;}
 .box-desc-receita p{color: #000;font-size: 1.2em;line-height: 1.3;text-align: justify; }
 
-
+.box-sidebar{width: 36%;float: left;padding: 3px;margin: 50px 0 50px 4%;}
+.box-sidebar h1{text-align: center; color: #FFBF00;font-weight: bold;font-size: 2em; margin-bottom: 5px; text-shadow: 0px 3px 0px #CA9800;}
+.box-sidebar .sidebar-receita{width: 100%;height: 115px;float: left; background: #efeaea;padding: 5px;margin-bottom: 10px;}
+.box-sidebar .sidebar-receita .thumb-sidebar{width: 100%;height: 105px; float: left;background: #fff;}
+.box-sidebar .sidebar-receita .thumb-sidebar .img-sidebar{width: 32.5%; float: left;padding: 10px;}
+.box-sidebar .sidebar-receita .thumb-sidebar .desc-sid-rec{width: 67.5%;float: left;padding: 10px;text-align: center;position: relative;}
+.box-sidebar .sidebar-receita .thumb-sidebar .desc-sid-rec .cat-tipo-pdr{font-size: 0.8em;color: #ccc;}
+.box-sidebar .sidebar-receita .thumb-sidebar .desc-sid-rec .cat-tipo-pdr:after{content: "";transition: 0.3s;width: 35%;height: 2px;position: absolute; background: #ccc;top: 20px;right: 0;margin-right: 5px;}
+.box-sidebar .sidebar-receita .thumb-sidebar .desc-sid-rec .cat-tipo-pdr:before{content: "";transition: 0.3s;width: 35%;height: 2px;position: absolute; background: #ccc;top: 20px;left: 0;margin-left: 5px;}
+.box-sidebar .sidebar-receita .thumb-sidebar .desc-sid-rec h5{color: #000;font-size: 0.9em;}
+.box-sidebar .sidebar-receita .thumb-sidebar .desc-sid-rec p{color: #000;font-size: 0.8em;}
+.box-sidebar .sidebar-receita .thumb-sidebar .desc-sid-rec p span{color: #CA9800;}
+.box-sidebar .sidebar-receita .thumb-sidebar:hover .titulo-relativo{color: #FFBF00;}
 
 /*-----------------------------------------------------------RODAPÉ---------------------------------------------------------------------------*/
 .footer_west{background: #FFBF00;border-top: 18px solid #CA9800;float: left;}
-
-/*------------------------------------ LONGO --------------------------------------*/
+/*------------------------------------ LONGO FOOTER--------------------------------------*/
 .logo_footer{padding: 78px 0;}
 .logo_footer .lg_footer img{width: 264px; height: 57px;}
-.logo_footer .lg_footer img{}
-
-/*------------------------------------ CONTATON ----------------------------------*/
+/*------------------------------------ CONTATON FOOTER ----------------------------------*/
 .informe{position: relative;padding: 52px 0 52px 50px;}
 .informe .menu_informe{width: 100%;}
 .informe .menu_informe .menu_footer{position: relative;}
 .informe .menu_informe .menu_footer li{position: relative;border-bottom: 1px dotted #CA9800;margin-bottom: 12px;padding-bottom: 12px;}
 .informe .menu_informe .menu_footer li a{color: #000;font-size: 1.3em;font-weight: bold;text-transform: uppercase;}
 .informe .menu_informe .menu_footer li a:hover{color: #CA9800;}
-
-/*-------------------------------------- SOCIAL -----------------------------------*/
+/*-------------------------------------- SOCIAL FOOTER -----------------------------------*/
 .social .box-rede .line-rede{width: 1px; height: 120px;float: left;margin: 55px 0 55px 0;}
 .social .instam img,.face img{width: 50px; height: 50px;}
 .social .instam,.face{margin-top: 75px;}
 .social .instam span,.face span{   position: relative;color: #000; top: 16px; left: 10px;font-weight: bold; font-size: 1.3em;}
 .social .instam span:hover,.face span:hover{ color: #CA9800;  }
-
-/*-------------------------------------- COPY --------------------------------------*/
+/*-------------------------------------- COPY FOOTER --------------------------------------*/
 .copy{background: #E3DED3;}
 .copy .txt_copy{text-align: center;padding: 15px 0;font-weight: bold;}
 

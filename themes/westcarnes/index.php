@@ -22,7 +22,6 @@
 </section>
 
 <main class="main_west container">
-
     <!-------------------------------------------SECAO QUEM SOMOS --------------------------------------------------------->
     <section class="sec_quem">
         <div class=" content">
@@ -94,15 +93,15 @@
     </section>
 
 
-    <section class="receitas container">
+    <section class="sec_menu_receitas container">
         <h1 class="font-zero">Receitas</h1>
         <img src="<?= REQUIRE_PATH; ?>/img/receitas.png" alt=""/>
         <article class="box_receitas">
             <h1 class="font-zero">Menu Receitas</h1>
             <ul class="menu_receitas">
-                <li><a href="<?= HOME; ?>/produtos">BOVINOS</a></li>
-                <li><a href="<?= HOME; ?>/produtos">AVES</a></li>
-                <li><a href="<?= HOME; ?>/produtos">SUINOS</a></li>
+                <li><a href="<?= HOME; ?>/receitas">BOVINOS</a></li>
+                <li><a href="<?= HOME; ?>/receitas">AVES</a></li>
+                <li><a href="<?= HOME; ?>/receitas">SUINOS</a></li>
             </ul>
         </article>
     </section>

@@ -138,7 +138,7 @@
 
             <section class="copy column column-12 container">
                 <h1 class="font-zero">Todos os direitos reservados</h1>                    
-                <p class="txt_copy">WESTCARNES - TODOS OS DIREITOS RESERVADOS 2018</p>              
+                <p class="txt_copy">WESTCARNES - TODOS OS DIREITOS RESERVADOS <?= date("Y"); ?></p>              
             </section>            
         </footer>
 

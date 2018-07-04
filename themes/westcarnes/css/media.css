@@ -21,9 +21,9 @@
 @media(max-width: 1149px){
     /*-----------------------------------------------MENU MOBI----------------------*/   
     /*-----------------------------------------------LOGO MENU MOBI----------------------*/
-.box-logo-mobi{display: block;}
-.box-logo-mobi .logo-mobi{width: 70%;margin: 25px 20% 0 10%;float: left;}
-.box-logo-mobi .logo-mobi img{width: 200px;}
+    .box-logo-mobi{display: block;}
+    .box-logo-mobi .logo-mobi{width: 70%;margin: 25px 20% 0 10%;float: left;}
+    .box-logo-mobi .logo-mobi img{width: 200px;}
     .main_nav_mob{        
         display: block;
         position: absolute;
@@ -55,8 +55,8 @@
     }
     .active{left: 0;position: absolute;}
 
-    .sidebarBtn{width: 70px; height: 70px;background: transparent;border: 0;position: absolute;top: 20px;right: 10px;cursor: pointer;}
-    .sidebarBtn span{display: block;width: 80%;height: 5px;transition: 0.3s;background: #CA9800;margin: 0 10%;}
+    .sidebarBtn{display: block;width: 70px; height: 70px;background: transparent;border: 0;position: absolute;top: 20px;right: 10px;cursor: pointer;}
+    .sidebarBtn span{display: block;width: 80%;height: 5px;transition: 0.3s; background: #CA9800;margin: 0 10%;}
     .sidebarBtn span:before{content: "";position: absolute;top: 13px;width: 80%;height: 5px;transition: 0.3s;background: #CA9800;left: 0;margin: 0 10%;}
     .sidebarBtn span:after{content: "";position: absolute;top: 48px;left: 0;width: 80%;height: 5px;background: #CA9800;margin: 0 10%;transition: 0.3s;}
 
@@ -69,19 +69,22 @@
     .sec_quem { height: auto;}
     .header_quem .titulo_quem {font-size: 2em;}
     .btn_quem_somos {margin: 25px 30% 70px 30%;}
-    .receitas .box_receitas .menu_receitas {position: absolute; top: 400px;}}
+    .sec_menu_receitas .box_receitas .menu_receitas {position: absolute; top: 400px;}}
 
 @media(max-width: 1055px){
+    /*-------------PAGE QUEM SOMOS ---------*/
     .header_quem .titulo_quem {margin-top: 22px;}
+    /*-------------PAGE RECEITA-------------*/
+    .main_receita .box-receita a {width: calc(33.33333333333333% - 20px); margin: 25px 10px;}
 }
 
 @media(max-width: 1040px){
     .btn_quem_somos {width: 90%;margin: 25px 5% 70px 5%;}
-    .receitas .box_receitas .menu_receitas {position: absolute;top: 350px;}
+    .sec_menu_receitas .box_receitas .menu_receitas {position: absolute;top: 350px;}
 }
 
 @media(max-width: 1000px){
-    .receitas .box_receitas .menu_receitas {position: absolute;top: 300px;}
+    .sec_menu_receitas .box_receitas .menu_receitas {position: absolute;top: 300px;}
     .desc_quem {padding: 0 1%;}
 
     /*-----------------------------------SINGLE PRODUTO-----------------------------------*/
@@ -91,9 +94,16 @@
     .main_contato .form_contato {padding: 35px 5%;}
 }
 
+@media(max-width: 950px){
+    /*---------------------SINGLE RECEITAS ----------------------------*/
+    .box-desc-receita{width: 100%;}
+    .box-sidebar{width: 100%;}
+    .box-sidebar .sidebar-receita .thumb-sidebar .img-sidebar { width: 22%;}
+}
+
 @media(max-width: 900px){
     .sec_produto figure {width: calc( 50% - 20px);margin: 25px 10px; }
-    .receitas{display: none;}
+    .sec_menu_receitas{display: none;}
 }
 
 @media(max-width: 800px){
@@ -104,13 +114,15 @@
     /*--------------------------MEDIA PRODUTOS------------------------------*/
     .main_produto .box-produtos .category_list a {width: calc(50% - 20px);margin: 25px 10px;}
     .secao .thumb-geral-pdr {width: calc(50% - 20px); margin: 0 10px;}
+    /*-------------PAGE RECEITA-------------*/
+    .main_receita .box-receita a {width: calc(50% - 20px); margin: 25px 10px;}
 }
 
 @media(max-width: 660px){    
     /*-----------------------------------PAGE RECEITA-------------------------------*/     
     .book-receita .lista-receitas { position: relative;left: 30px;}
     .book-receita .lista-receitas ul li a{font-size: 1.1em;}
-    .receitas .box_receitas .menu_receitas{font-size: 1.5em;    position: absolute;top: 220px;}    
+    .sec_menu_receitas .box_receitas .menu_receitas{font-size: 1.5em;    position: absolute;top: 220px;}    
     .des-receita { width: 100%; height: 150px;}  
     .des-receita img{ width: 250px !important; height: 150px;} 
     .des-receita .box-titulo-sing {width: 250px;}
@@ -139,5 +151,12 @@
     .main_faq .sec_faq { padding: 0;background: none;}    
     .main_faq .form_faq h1 {font-size: 1.5em;}
     .main_faq .form_faq {padding: 0;}
-    .main_faq .form_faq .btn-faq {width: 100%;    }
+    .main_faq .form_faq .btn-faq {width: 100%;}    
+    /*-------------PAGE RECEITA-------------*/
+    .main_receita .box-receita a {width: calc(100% - 20px); margin: 25px 10px;}
+    .box-btn-rec .btn-receitas{width: 90%; margin: 0 5%;}
+}
+
+@media(max-width: 400px){
+.box-sidebar .sidebar-receita .thumb-sidebar .desc-sid-rec h5{color: #000;font-size: 0.7em;}
 }
