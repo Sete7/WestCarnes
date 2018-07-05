@@ -1,6 +1,7 @@
 <div class="banner-receita container">
     <div class="box-banner-rec">
-        <img src="<?= REQUIRE_PATH; ?>/img/banner/banner-receitas.jpg" alt=""/>
+        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/banner/banner-receitas.jpg" alt=""/>
+        <img class="img-mob"  src="<?= REQUIRE_PATH; ?>/img/mobile/banner-mobi-receita.jpg" alt=""/>
         <div class="box-camada"></div>
     </div>
 </div>
@@ -9,7 +10,25 @@
         <h1 class="font-zero">Receitas</h1>
         <article class="box-receita">
             <div class="box-titulo-receitas">
-                <h1 class=""><i class="fa fa-book"></i> Ultimas Receitas</h1>
+                <div class="content">
+                    <h1 class=""><i class="fa fa-book"></i> Ultimas Receitas</h1>
+                    <div class="box-lista-cat content">
+                        <u class="lista-categoria">
+                            <li>
+                                <a href="#">AVES</a>
+                            </li>
+                            <li>
+                                <a href="#">SUINOS</a>
+                            </li>
+                            <li>
+                                <a href="#">BOVINOS</a>
+                            </li>
+                            <li>
+                                <a href="#">OUTROS</a>
+                            </li>
+                        </u>
+                    </div>
+                </div>
             </div>
             <div class="content">
                 <?php
@@ -18,7 +37,7 @@
                     ?>
                     <a href="<?= HOME; ?>/single-receita">                    
                         <div class="thumb-receita">
-                            <img src="<?= REQUIRE_PATH; ?>/img/carne.jpg" alt=""/>
+                            <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt=""/>
                         </div>
                         <div class="desc-receita">
                             <spa><?= date("d/m/Y à\s\ H:i"); ?></spa> 

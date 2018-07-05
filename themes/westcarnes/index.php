@@ -3,7 +3,7 @@
 <section id="banner">
     <div id="layerslider" style="width:100%; height:672px;">
         <div class="ls-slide" data-ls="slidedelay: 4000; transition2d: 11;">                  
-            <img src="<?= REQUIRE_PATH; ?>/img/slyder_1.png" class="ls-bg" alt="Slide background"/>
+            <img  class="ls-bg" src="<?= REQUIRE_PATH; ?>/img/slyde_2.jpeg" alt="Slide background"/>       
             <img src="<?= REQUIRE_PATH; ?>/img/frases.png" alt=""  class="ls-l" style="top:350px;left:170px;white-space: nowrap;" data-ls="durationin:1500;delayin:100;rotatein:20;rotatexin:30;scalexin:1.5;scaleyin:1.5;transformoriginin:left 50% 0;durationout:750;rotateout:20;rotatexout:-30;scalexout:0;scaleyout:0;transformoriginout:left 50% 0;"/>
         </div>
 
@@ -21,6 +21,13 @@
     <div class="colo-rgba-slyde"></div>
 </section>
 
+<!-- -------------------------SLIDER MOBILE---------------------------- -->
+<article class="slideshow container">
+    <?php
+        require_once 'page/page-slyder.php';
+    ?>
+</article>
+<!-- -------------------------CONTEUDO DO SITE---------------------------- -->       
 <main class="main_west container">
     <!-------------------------------------------SECAO QUEM SOMOS --------------------------------------------------------->
     <section class="sec_quem">

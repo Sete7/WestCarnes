@@ -2,7 +2,8 @@
     <h1 class="font-zero">Contato</h1>
     <article class="box_quem_somos"> 
         <h1 class="font-zero">Queremos te ouvir</h1>                
-        <img src="<?= REQUIRE_PATH; ?>/img/fundo-contato.png" alt=""/>
+        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/fundo-contato.png" alt=""/>
+        <img class="img-mob" src="<?= REQUIRE_PATH; ?>/img/mobile/banner-mobi-faq.jpg" alt=""/>
     </article>	
 </section>
 
@@ -14,7 +15,7 @@
             <div class="content">
                 <form class="form_faq">
                     <h1>Deixe seu elogio, sugetão, reclamação ou dúvida.</h1>
-                    
+
                     <label for="nome">NOME</label>
                     <input type="text" name="nome" id="nome" class="nome">
                     <label for="email">EMAIL</label>
@@ -25,7 +26,7 @@
                     <input type="text" name="empresa" id="empresa" class="telefone">                            
                     <label for="segestao">MENSAGEM</label>
                     <textarea id="segestao" class="text-faq" cols="100" rows="10"></textarea>                   
-                    
+
                     <input type="submit" name="enviar" class="btn-faq" value="ENVIAR">
                 </form>
             </div>

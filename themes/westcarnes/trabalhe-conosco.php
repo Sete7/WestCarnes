@@ -2,7 +2,8 @@
     <h1 class="font-zero">Contato</h1>
     <article class="box_quem_somos"> 
         <h1 class="font-zero">Queremos te ouvir</h1>                      
-        <img src="<?= REQUIRE_PATH; ?>/img/banner-trabalhe.png" alt=""/>
+        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/banner-trabalhe.png" alt=""/>
+        <img class="img-mob" src="<?= REQUIRE_PATH; ?>/img/mobile/banner-mobi-trabalhe.jpg" alt=""/>
     </article>	
 </section>
 

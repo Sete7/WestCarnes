@@ -1,22 +1,23 @@
 <div class="banner-single-receita container">
     <div class="box-single-rec">
-        <img src="<?= REQUIRE_PATH; ?>/img/banner/banner-single-receitas4.jpg" alt=""/>
+        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/banner/banner-single-receitas5.jpg" alt=""/>
+        <img class="img-mob"  src="<?= REQUIRE_PATH; ?>/img/mobile/banner-mobi-receita.jpg" alt=""/>
         <div class="box-single-camada"></div>
     </div>
 </div>
 <main class="main_single-receitas container">
-    <div class="des-receita">
-        <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt="" style="width: 30%;"/>
-        <div class="box-titulo-sing">
-            <h1 class="">Almôndegas recheadas</h1>
-        </div>
-    </div>
 
     <!---------------------------------------------------- DESCRICAO ------------------------------------------------------------>
-    <div class="content">
+    <div class="content">         
         <div class="box-desc-receita">
-
             <div class="desc-receita">
+                <div class="des-receita">
+                    <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt="" style="width: 50%;"/>
+                    <div class="box-titulo-sing">
+                        <h1 class="">Almôndegas recheadas</h1>
+                    </div>
+                </div>
+                
                 <h1>Ingredientes</h1>
                 <p>
                     1 pedaço de patinho de aproximadamente 150g moído duas vezes; <br>
@@ -52,25 +53,25 @@
         <div class="box-sidebar"> 
             <h1>Receitas em Destaque</h1>
             <?php
-                for($i = 1; $i <= 5; $i++){
-            ?>
-            <a href="#" class="sidebar-receita">        
-                <div class="thumb-sidebar">        
-                    <div class="img-sidebar">        
-                        <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt=""/>
-                    </div>
-                    <div class="desc-sid-rec">
-                        <span class="cat-tipo-pdr">Carne</span>
-                        <h5 class="titulo-relativo">
-                            SALADAS, MOLHOS E ACOMPANHAMENTOS
-                            PURÊ DE ABÓBORA
-                        </h5>
-                        <p><span>por</span> Tereza S.</p>
+            for ($i = 1; $i <= 5; $i++) {
+                ?>
+                <a href="#" class="sidebar-receita">        
+                    <div class="thumb-sidebar">        
+                        <div class="img-sidebar">        
+                            <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt=""/>
+                        </div>
+                        <div class="desc-sid-rec">
+                            <span class="cat-tipo-pdr">Carne</span>
+                            <h5 class="titulo-relativo">
+                                SALADAS, MOLHOS E ACOMPANHAMENTOS
+                                PURÊ DE ABÓBORA
+                            </h5>
+                            <p><span>por</span> Tereza S.</p>
+                        </div>        
                     </div>        
-                </div>        
-            </a>
-            <?php
-                }
+                </a>
+                <?php
+            }
             ?>
         </div>
 

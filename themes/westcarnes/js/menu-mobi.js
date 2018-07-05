@@ -1,0 +1,1 @@
+$(document).ready(function (){$(".sidebarBtn").click(function (){$(".main_nav_mob").toggleClass('active');$(".sidebarBtn").toggleClass('toggle')})});

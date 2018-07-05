@@ -26,7 +26,7 @@
                     <!----------------------LOGO------------------------->              
                     <div class="main_logo">
                         <a href="<?= HOME; ?>/index" class="logo">
-                            <img src="<?= REQUIRE_PATH; ?>/img/logo-west" class="logo_west" alt="" title="Bem Vindo a West Carnes"/>
+                            <img src="<?= REQUIRE_PATH; ?>/img/logo-west.png" class="logo_west" alt="" title="Bem Vindo a West Carnes"/>
                         </a>
                     </div>           
 
@@ -56,7 +56,7 @@
                                     <img src="<?= REQUIRE_PATH; ?>/img/logo-west" class="logo_west" alt="" title="Bem Vindo a West Carnes"/>
                                 </a>
                             </div> 
-                            
+
                             <ul class="menu-mobi">
                                 <li><a href="<?= HOME; ?>/index" title="Home">Inicial</a></li>
                                 <li><a href="<?= HOME; ?>/quem-somos" title="Quem Somos">Quem Somos</a></li>
@@ -150,16 +150,9 @@
         <script src="<?= REQUIRE_PATH; ?>/malihu-scroll/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/layerslider.transitions.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+        <script src="themes/westcarnes/js/script-slider-mob.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/filtragem.js" type="text/javascript"></script>
-
-        <script>
-            $(document).ready(function () {
-                $(".sidebarBtn").click(function () {
-                    $(".main_nav_mob").toggleClass('active');
-                    $(".sidebarBtn").toggleClass('toggle');
-                });
-            });
-
-        </script>
+        <script src="<?= REQUIRE_PATH; ?>/js/menu-mobi.js" type="text/javascript"></script>
+        
     </body>
 </html>
