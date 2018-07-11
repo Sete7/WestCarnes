@@ -1,0 +1,185 @@
+<?php
+//chamando as classes
+$produto = new Produto();
+$produtoController = new ProdutoController();
+$categoria = new Categoria();
+
+//iniciando as paginação
+if (empty($_GET['pg'])):
+else:
+    $pg = $_GET['pg'];
+endif;
+if (isset($pg)):
+    $pg = $_GET['pg'];
+else:
+    $pg = 1;
+endif;
+
+//deletando o produto
+$del = filter_input(INPUT_GET, "del", FILTER_SANITIZE_NUMBER_INT);
+if ($del):
+    $produto = $produtoController->retornaProdutoImagem($del);
+    echo $capa = "../upload/" . $produto->getThumb();
+    if (file_exists($capa) && !is_dir($capa)):
+        unlink($capa);
+    endif;
+    if ($produtoController->Excluir($del)):
+        $resultado = "<div class=\"alert alert-success\">O Produto </b> foi removido com sucesso</div>";
+    else:
+        $resultado = "<div class=\"alert alert-danger\">Erro ao remover </div>";
+    endif;
+endif;
+
+
+//quantidade de postagem para visualizar por pagina
+$quantidade = 10;
+$inicio = ($pg * $quantidade) - $quantidade;
+$listarProduto = $produtoController->ListarProduto($inicio, $quantidade);
+?>
+
+<div class="main-panel">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a class="navbar-brand" href="#">Listar Produtos</a>
+            </div>
+            <?php require_once './inc/header_top.php'; ?>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Listagem de Produtos</h4>
+
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                                <thead>
+                                <th>ID</th>
+                                <th>Capa</th>
+                                <th>Titulo</th>
+                                <th>Categoria</th>                        
+                                <th>Valor</th>
+                                <th>Status</th>                            
+                                <th>Ações</th>                                               
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if ($listarProduto == null):
+                                        echo '<td colspan="8">Nesse momento não temos produtos cadastrado</td>';
+                                    else:
+                                        foreach ($listarProduto as $pts):
+                                            ?>
+
+                                            <tr>
+                                                <td><?= $pts->getCod(); ?></td>
+                                                <td> <img src="../upload/<?= $pts->getThumb(); ?>" width="100" alt=""/></td>
+                                                <td><?= $pts->getTitulo(); ?></td>
+                                                <td><?= $pts->getCategoria()->getTitulo(); ?></td>
+
+                                                <td>R$ <?= $pts->getValor(); ?></td>                                  
+                                                <td>
+                                                    <?=
+                                                    ($pts->getStatus() == 1) ?
+                                                            '<btn class="btn btn-fill btn-success btn-icon">'
+                                                            . '<i class="fa ti-check"></i>'
+                                                            . '</btn></td>' :
+                                                            '<btn class="btn btn-fill btn-danger btn-icon">'
+                                                            . '<i class="fa fa-times"></i>'
+                                                            . '</btn></td>'
+                                                    ?>
+                                                <td>
+                                                    <a href="?pagina=editarProduto&cod=<?= $pts->getCod(); ?>" class="btn btn-icon btn-primary"><i class="ti-pencil-alt2"></i></a>
+                                                    <a href="?pagina=listarProduto&del=<?= $pts->getCod(); ?>" class="btn btn-icon btn-danger" onclick="return confirm('Deseja realmente excluir o produto <?= $pts->getTitulo(); ?>');"><i class="ti-close"></i></a>
+                                                </td>                                   
+                                            </tr>
+
+                                            <?php
+                                        endforeach;
+                                    endif;
+                                    ?>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <nav aria-label="Page navigation">
+                        <?php
+                        $totalRegistros = $produtoController->RetornaQtdProduto();
+                        $totalRegistros;
+                        if ($totalRegistros <= $quantidade):
+
+                        else:
+                            $paginas = ceil($totalRegistros / $quantidade);
+                            $links = 5;
+
+                            if (isset($i)):
+                            else:
+                                $i = '1';
+                            endif;
+                            ?>
+                            <!-- ativação da paginação-->
+                            <style>
+    <?php
+    if (isset($_GET['pg'])):
+        $num_pg = $_GET['pg'];
+    endif;
+    ?>
+                                .pagination a.active<?php echo $num_pg; ?>{background-color: #68b3c8; color: #fff; }
+                            </style>
+                            <ul class="pagination">
+                                <li><a href="dashboard.php?pagina=listarProduto&pg=1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                <?php
+                                if (isset($_GET['pg'])):
+                                    $num_pg = $_GET['pg'];
+                                endif;
+
+                                for ($i = $pg - $links; $i <= $pg - 1; $i++):
+                                    if ($i <= 0):
+                                    else:
+                                        ?>                            
+                                        <li class="active<?= $i; ?>"><a href="dashboard.php?pagina=listarProduto&pg=<?= $i; ?>"><?= $i; ?> <span class="sr-only">(current)</span></a></li>
+                                    <?php
+                                    endif;
+                                endfor;
+                                ?>       
+                                <li><a class="active<?= $i; ?>" href="dashboard.php?pagina=listarProduto&pg=<?= $i; ?>"><?= $pg; ?></a></li>
+                                <?php
+                                for ($i = $pg + 1; $i <= $pg = $links; $i++):
+                                    if ($i > $paginas):
+                                    else:
+                                        ?>
+                                        <li><a class="active<?= $i; ?>" href="dashboard.php?pagina=listarProduto&pg=<?= $i; ?>"><?= $i; ?></a></li>
+                                        <?php
+                                        endif;
+                                    endfor;
+                                    ?>                    
+                                <li>
+                                    <a href="dashboard.php?pagina=listarProduto&pg=<?= $paginas; ?>" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        <?php
+                        endif;
+                        ?>
+
+                    </nav>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+

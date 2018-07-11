@@ -1,0 +1,189 @@
+<?php
+$categoria = new Categoria();
+$receita = new Receita();
+$receitaControler = new ReceitaController();
+
+
+//iniciando as paginação
+if (empty($_GET['pg'])):
+else:
+    $pg = $_GET['pg'];
+endif;
+if (isset($pg)):
+    $pg = $_GET['pg'];
+else:
+    $pg = 1;
+endif;
+
+
+//deletando o produto
+$del = filter_input(INPUT_GET, "del", FILTER_SANITIZE_NUMBER_INT);
+if ($del):
+    $receita = $receitaControler->retornaReceitaImagem($del);
+    echo $capa = "../upload/" . $receita->getThumb();
+    if (file_exists($capa) && !is_dir($capa)):
+        unlink($capa);
+    endif;
+    if ($receitaControler->Excluir($del)):
+        $resultado = "<div class=\"alert alert-success\">A receita </b> foi removida com sucesso</div>";
+    else:
+        $resultado = "<div class=\"alert alert-danger\">Erro ao remover </div>";
+    endif;
+endif;
+
+//quantidade de postagem para visualizar por pagina
+$quantidade = 10;
+$inicio = ($pg * $quantidade) - $quantidade;
+$listarReceita = $receitaControler->ListarReceita($inicio, $quantidade);
+?>
+
+<div class="main-panel">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a class="navbar-brand" href="#">Listar Receita</a>
+            </div>
+            <?php require_once './inc/header_top.php'; ?>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Listagem de Receitas</h4>                           
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                                <thead>
+                                <th>ID</th>
+                                <th>Capa</th>
+                                <th>Titulo</th>
+                                <th>Categoria</th>                        
+                                <th>url</th>
+                                <th>Status</th>                            
+                                <th>Ações</th>                                               
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if ($listarReceita == null):
+
+//                                        echo '<td colspan="8">Nesse momento não temos receitas cadastrado</td>';                                  
+                                    else:
+                                        foreach ($listarReceita as $rct):
+                                            ?>
+
+                                            <tr>
+
+                                                <td><?= $rct->getCod(); ?></td>
+                                                <td> <img src="../upload/<?= $rct->getThumb(); ?>" width="100" alt=""/></td>
+                                                <td><?= $rct->getTitulo(); ?></td>                                                
+                                                <td><?= $rct->getCategoria()->getTitulo(); ?></td>
+                                                <td><?= $rct->getUrl(); ?></td>
+                                                <td>
+                                                    <?=
+                                                    ($rct->getStatus() == 1) ?
+                                                            '<btn class="btn btn-fill btn-success btn-icon">'
+                                                            . '<i class="fa ti-check"></i>'
+                                                            . '</btn></td>' :
+                                                            '<btn class="btn btn-fill btn-danger btn-icon">'
+                                                            . '<i class="fa fa-times"></i>'
+                                                            . '</btn></td>'
+                                                    ?>
+                                                </td>
+
+
+                                                <td>
+                                                    <a href="?pagina=editarReceita&cod=<?= $rct->getCod(); ?>" class="btn btn-icon btn-primary"><i class="ti-pencil-alt2"></i></a>
+                                                    <a href="?pagina=listarReceita&del=<?= $rct->getCod(); ?>" class="btn btn-icon btn-danger" onclick="return confirm('Deseja realmente excluir a <?= $rct->getTitulo(); ?>');"><i class="ti-close"></i></a>
+                                                </td>                                   
+                                            </tr>
+
+                                            <?php
+                                        endforeach;
+                                    endif;
+                                    ?>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <nav aria-label="Page navigation">
+                        <?php
+                        $totalRegistros = $receitaControler->RetornaQtdReceita();
+                        $totalRegistros;
+                        if ($totalRegistros <= $quantidade):
+
+                        else:
+                            $paginas = ceil($totalRegistros / $quantidade);
+                            $links = 5;
+
+                            if (isset($i)):
+                            else:
+                                $i = '1';
+                            endif;
+                            ?>
+                            <!-- ativação da paginação-->
+                            <style>
+    <?php
+    if (isset($_GET['pg'])):
+        $num_pg = $_GET['pg'];
+    endif;
+    ?>
+                                .pagination a.active<?php echo $num_pg; ?>{background-color: #68b3c8; color: #fff; }
+                            </style>
+
+                            <ul class="pagination">
+                                <li><a href="dashboard.php?pagina=listarReceita&pg=1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                <?php
+                                if (isset($_GET['pg'])):
+                                    $num_pg = $_GET['pg'];
+                                endif;
+
+                                for ($i = $pg - $links; $i <= $pg - 1; $i++):
+                                    if ($i <= 0):
+                                    else:
+                                        ?>                            
+                                        <li class="active<?= $i; ?>"><a href="dashboard.php?pagina=listarReceita&pg=<?= $i; ?>"><?= $i; ?> <span class="sr-only">(current)</span></a></li>
+                                    <?php
+                                    endif;
+                                endfor;
+                                ?>       
+                                <li><a class="active<?= $i; ?>" href="dashboard.php?pagina=listarReceita&pg=<?= $i; ?>"><?= $pg; ?></a></li>
+                                <?php
+                                for ($i = $pg + 1; $i <= $pg = $links; $i++):
+                                    if ($i > $paginas):
+                                    else:
+                                        ?>
+                                        <li><a class="active<?= $i; ?>" href="dashboard.php?pagina=listarReceita&pg=<?= $i; ?>"><?= $i; ?></a></li>
+                                        <?php
+                                        endif;
+                                    endfor;
+                                    ?>                    
+                                <li>
+                                    <a href="dashboard.php?pagina=listarProduto&pg=<?= $paginas; ?>" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        <?php
+                        endif;
+                        ?>
+
+                    </nav>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

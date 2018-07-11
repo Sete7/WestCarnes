@@ -1,0 +1,233 @@
+<?php
+//instanciando os objetos
+$categoria = new Categoria();
+$categoriaController = new CategoriaController();
+$helper = new Helper();
+$upload = new Upload();
+//mostra a mensagem verdadeiro ou falso na hora do cadastro
+$resultado = "";
+
+//alteração da imagem
+$submitImage = filter_input(INPUT_POST, 'submitImage', FILTER_SANITIZE_STRING);
+if ($submitImage):
+    $cod = filter_input(INPUT_GET, 'cod', FILTER_VALIDATE_INT);
+    $retornaImagem = $categoriaController->retornaCategoriaImagem($cod);
+    $thumbCat = $retornaImagem->getThumb();
+    $nomeCat = $retornaImagem->getTitulo();
+    $capa = "../upload/" . $thumbCat;
+    if (file_exists($capa) && !is_dir($capa)):
+        unlink($capa);
+    endif;
+    //imagem esta recebendo files imagemArtigo
+    $imagem = $_FILES['imagemArtigo'];
+    //recebendo a imagem, nome do produto, tamanho da imagem, pasta
+    $upload->Image($imagem, $nomeCat, 1000, 'produtos');
+    //setando a imagem
+    $nomeImagem = $upload->getResult();
+    $categoria->setThumb($nomeImagem);
+    if ($categoriaController->AlterarImagem($cod, $nomeImagem)):
+        $insertGoTo = '?pagina=listarCategoria';
+        header("refresh:2;url={$insertGoTo}");
+        $resultado = "<div class=\"alert alert-success\">A imagem <b>{$nomeImagem} </b> foi alterado com sucesso</div>";
+    else:
+        $insertGoTo = '?pagina=categoria';
+        header("refresh:2;url={$insertGoTo}");
+        $resultado = "<div class=\"alert alert-danger\">Erro ao cadastrar </div>";
+    endif;
+endif;
+
+
+
+
+//alteração do post                             
+$btnCadastrar = filter_input(INPUT_POST, 'btnCadastrar', FILTER_SANITIZE_STRING);
+
+if ($btnCadastrar):      
+    $cod = filter_input(INPUT_GET, 'cod', FILTER_VALIDATE_INT);
+    $categoria->setCod($cod);
+    $categoria->setTitulo(filter_input(INPUT_POST, 'txtTitulo', FILTER_SANITIZE_STRING));
+    $url = $helper->Name($categoria->getTitulo());
+    $categoria->setUrl($url);
+    $categoria->setStatus(filter_input(INPUT_POST, 'slStatus', FILTER_SANITIZE_NUMBER_INT));
+    $categoria->setDescricao(filter_input(INPUT_POST, 'txtDescricao', FILTER_SANITIZE_SPECIAL_CHARS));
+    $categoria->setData(date('Y-m-d H:i:s'));
+
+    //Alterar do produto
+    if ($categoriaController->Atualizar($categoria)):   
+        $insertGoTo = '?pagina=listarCategoria';
+        header("refresh:2;url={$insertGoTo}");
+        $resultado = '<div class="alert alert-success">
+                        <button type="button" aria-hidden="true" class="close">×</button>
+                        <span><b> Atualizado efetuado com sucesso - </b></span>
+                    </div>';
+    else:
+
+        $insertGoTo = '?pagina=editarCategoria';
+        header("refresh:2;url={$insertGoTo}");
+        $resultado = '<div class="alert alert-danger">
+                        <button type="button" aria-hidden="true" class="close">×</button>
+                        <span><b> Erro ao Atualizar - Favor preencha todos os campos</b></span>
+                    </div>';
+    endif;
+
+endif;
+
+//retornando os dados para o formulário - atraves do get COD
+$cod = filter_input(INPUT_GET, 'cod', FILTER_VALIDATE_INT);
+$retornaCategoria = $categoriaController->retornaCategoria($cod);
+if ($retornaCategoria == NULL):
+
+else:
+    $nome = $retornaCategoria->getTitulo();
+    $descricao = $retornaCategoria->getDescricao();
+    $thumb = $retornaCategoria->getThumb();
+    $status = $retornaCategoria->getStatus();
+    ?>
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Alterar Produto</a>
+                </div>
+                <?php require_once './inc/header_top.php'; ?>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="col-lg-8 col-md-7">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Alterar Produto</h4>                               
+
+                                </div>
+                                <div class="content">
+                                    <form>                                  
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Titulo Categoria</label>
+                                                    <input type="text" class="form-control border-input" name="txtTitulo" placeholder="Categoria" value="<?= $nome; ?>">
+                                                </div>
+                                            </div>                                    
+                                        </div>                                    
+
+
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label for="txtDescricao">Descrição da Categoria</label>
+                                                    <input type="text" class="form-control border-input" name="txtDescricao" placeholder="Categoria" value=" <?= $descricao; ?>">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="slStatus">Status</label>
+                                                    <select name="slStatus" id="slStatus" class="form-control border-input">
+                                                        <?php
+                                                        if ($status == 1):
+                                                            ?>
+                                                            <option value="1" selected='selected'>Ativo</option>
+                                                            <?php
+                                                        else:
+                                                            ?>
+                                                            <option value="2" selected='selected'>Bloqueado</option>
+                                                        <?php
+                                                        endif;
+                                                        if ($status != 1):
+                                                            ?>
+                                                            <option value="1" <?php $status == 1 ? "selected='selected'" : "" ?>>Ativo</option>
+                                                            <?php
+                                                        else:
+                                                            ?>
+                                                            <option value="2" <?php $status == 2 ? "selected='selected'" : "" ?>>Bloqueado</option>
+                                                        <?php
+                                                        endif;
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <?php echo $resultado; ?>
+                                            </div>                                    
+                                        </div>    
+
+
+                                        <div class="text-center">
+                                            <input type="submit" class="btn btn-success btn-fill btn-wd" name="btnCadastrar" value="Alterar Produto">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card card-user">
+                            <div class="image">
+                                <?php
+                                if ($thumb == null):
+                                    echo '<img id="img-uploaded" src="assets/img/no_image.jpg" alt="Sua imagem">';
+                                else:
+                                    echo "<img id='img-uploaded' src='../upload/{$thumb}' alt='Sua imagem'>";
+                                endif;
+                                ?>                            
+                            </div>                        
+                        </div>
+
+
+                        <div class="card">
+                            <div class="row" id="image_preview">                               
+                            </div>
+                            <div class="content">                            
+                                <div class="row">                                 
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>CAPA (JPG 800X1000PX):</label>
+                                                <input type="file" class="form-control border-input uploader" id="imagemArtigo"  name="imagemArtigo">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success btn-fill btn-wd" name='submitImage' value="Alterar Capa"/>
+                                        </div>
+                                    </form>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    <?php
+    endif;
+    ?>
+    <script type="text/javascript">
+        function preview_images()
+        {
+            var total_file = document.getElementById("images").files.length;
+            for (var i = 0; i < total_file; i++)
+            {
+                $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='" + URL.createObjectURL(event.target.files[i]) + "'></div>");
+            }
+        }
+    </script>
+
+

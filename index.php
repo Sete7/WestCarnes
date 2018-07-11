@@ -10,8 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet">        
         <link href="<?= REQUIRE_PATH; ?>/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="<?= REQUIRE_PATH; ?>/css/boot.css" rel="stylesheet" type="text/css"/>        
-        <link href="<?= REQUIRE_PATH; ?>/img/favicon.png" rel="shortcut icon">  
-        <!--        <link href="<?= HOME; ?>/css/reset.css" rel="stylesheet" type="text/css"/>-->
+        <link href="<?= REQUIRE_PATH; ?>/img/favicon.png" rel="shortcut icon">
         <link href="<?= REQUIRE_PATH; ?>/css/estilo.css" rel="stylesheet" type="text/css"/>         
         <link href="<?= REQUIRE_PATH; ?>/css/layerslider.css" rel="stylesheet" type="text/css"/>
         <link href="<?= REQUIRE_PATH; ?>/css/media.css" rel="stylesheet" type="text/css"/>
@@ -150,9 +149,8 @@
         <script src="<?= REQUIRE_PATH; ?>/malihu-scroll/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/layerslider.transitions.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
-        <script src="themes/westcarnes/js/script-slider-mob.js" type="text/javascript"></script>
+        <script src="<?= REQUIRE_PATH; ?>/js/script-slider-mob.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/filtragem.js" type="text/javascript"></script>
         <script src="<?= REQUIRE_PATH; ?>/js/menu-mobi.js" type="text/javascript"></script>
-        
     </body>
 </html>

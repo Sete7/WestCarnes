@@ -1,0 +1,172 @@
+<?php
+
+$categoria = new Categoria();
+$helper = new Helper();
+$categoriaController = new CategoriaController();
+
+$resultado = "";
+//iniciando as paginação
+if (empty($_GET['pg'])):
+else:
+    $pg = $_GET['pg'];
+endif;
+if (isset($pg)):
+    $pg = $_GET['pg'];
+else:
+    $pg = 1;
+endif;
+
+//deletando o artigo
+$del = filter_input(INPUT_GET, "del", FILTER_SANITIZE_NUMBER_INT);
+if ($del):
+//    $excluir = $categoriaController->Excluir($cod);
+//
+    if ($categoriaController->Excluir($del)):
+        $resultado = "<div class=\"alert alert-success\">Categoria </b> foi removido com sucesso</div>";
+    else:
+        $resultado = "<div class=\"alert alert-danger\">Erro ao remover </div>";
+    endif;
+endif;
+
+//quantidade de postagem para visualizar por pagina
+$quantidade = 10;
+$inicio = ($pg * $quantidade) - $quantidade;
+$listarCategoria = $categoriaController->ListarCategoria($inicio, $quantidade);
+
+?>
+
+<div class="main-panel">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a class="navbar-brand" href="#">Categoria Cadastrada</a>
+            </div>
+              <?php require_once './inc/header_top.php'; ?>
+        </div>
+    </nav>
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Lista de Categoria</h4>
+
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                                <thead>
+                                <th>ID</th>
+                                <th>Thumb</th>
+                                <th>Titulo</th>
+                                <th>Descricao</th>
+                                <th>Data</th>
+                                <th>Atualizar</th>
+                                <th>Excluir</th>
+                                <th>Status</th>
+                                </thead>
+                                <tbody>
+                                <?php
+                                if ($listarCategoria == null):
+                                    echo '<td colspan="7">Nesse momento não temo(s) categoria(s) cadastrada(s)</td>';
+
+                                else:
+                                    foreach ($listarCategoria as $listar):
+                                        ?>
+                                            <tr>
+                                                <td><?= $listar->getCod(); ?></td>
+                                                <td> <img src="../upload/<?= $listar->getThumb(); ?>" width="100" alt=""/></td>
+                                                <td><?= $listar->getTitulo(); ?></td>
+                                                <td><?= $listar->getDescricao(); ?></td>
+                                                <td><?= $helper->converteData($listar->getData()) ?></td>
+                                                <td><a href="?pagina=editarCategoria&cod=<?= $listar->getCod() ?>"><btn class="btn btn-sm btn-info btn-icon"><i class="fa ti-slice"></i></btn></a></td>
+                                                <td><a href="?pagina=listarCategoria&del=<?= $listar->getCod() ?>" onclick="return confirm('Deseja realmente excluir a categoria <?= $listar->getTitulo(); ?>');"> <btn class="btn btn-sm btn-danger btn-icon"><i class="fa ti-trash"></i></btn></a></td>
+                                                <td><?= ($listar->getStatus() == 1) ? '<btn class="btn btn-fill btn-success btn-icon"><i class="fa ti-check"></i></btn></td>' : '<btn class="btn btn-fill btn-danger btn-icon"><i class="fa fa-times"></i></btn></td>'?>
+                                            </tr>
+                                        <?php
+                                    endforeach;
+                                endif;
+                                ?>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <nav aria-label="Page navigation">
+                <?php
+                $totalRegistros = $categoriaController->RetornaQtdCategoria();
+                $totalRegistros;
+                if ($totalRegistros <= $quantidade):
+                    
+                else:
+                    $paginas = ceil($totalRegistros / $quantidade);
+                    $links = 5;
+
+                    if (isset($i)):
+                    else:
+                        $i = '1';
+                    endif;
+                ?>
+                
+                <!-- ativação da paginação-->
+                    <style>
+                    <?php
+                    if (isset($_GET['pg'])):
+                        $num_pg = $_GET['pg'];
+                    endif;
+                    ?>
+                        .pagination a.active<?php echo $num_pg; ?>{background-color: #68b3c8; color: #fff; }
+                    </style>
+                <ul class="pagination">
+                    <li><a href="dashboard.php?pagina=categoriaListar&pg=1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                    <?php
+                    if (isset($_GET['pg'])):
+                        $num_pg = $_GET['pg'];
+                    endif;
+
+                    for ($i = $pg - $links; $i <= $pg - 1; $i++):
+                        if ($i <= 0):
+                        else:
+                            ?>                            
+                            <li class="active<?= $i; ?>"><a href="dashboard.php?pagina=categoriaListar&pg=<?= $i; ?>"><?= $i; ?> <span class="sr-only">(current)</span></a></li>
+                        <?php
+                        endif;
+                    endfor;
+                    ?>       
+                    <li><a class="active<?= $i; ?>" href="dashboard.php?pagina=categoriaListar&pg=<?= $i; ?>"><?= $pg; ?></a></li>
+                    <?php
+                    for ($i = $pg + 1; $i <= $pg = $links; $i++):
+                        if ($i > $paginas):
+                        else:
+                            ?>
+                            <li><a class="active<?= $i; ?>" href="dashboard.php?pagina=categoriaListar&pg=<?= $i; ?>"><?= $i; ?></a></li>
+                        <?php
+                        endif;
+                    endfor;
+                    ?>                    
+                    <li>
+                        <a href="dashboard.php?pagina=categoriaListar&pg=<?= $paginas; ?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+                <?php
+                endif;
+                ?>
+                
+            </nav>
+        </div>
+        
+        
+    </div>

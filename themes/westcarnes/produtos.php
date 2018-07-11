@@ -2,7 +2,7 @@
     <h1 class="font-zero">Contato</h1>
     <article class="box_produto"> 
         <h1 class="font-zero">Queremos te ouvir</h1>
-        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/banner/banner-trabalhe-03.png" alt=""/>
+        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/banner/banner-produtos.jpg" alt=""/>
         <img class="img-mob" src="<?= REQUIRE_PATH; ?>/img/mobile/banner-mobi-produto.jpg" alt=""/>
     </article>	
 </section>
@@ -11,35 +11,22 @@
     <div class="content">
         <div class="box-produtos wrap">
             <div class="category_list ">
-
+                
                 <a href="#aves" class="category_item ct_active" category="aves">                    
-                    <img src="<?= REQUIRE_PATH; ?>/img/icon-aves.png" alt=""/>
-                    <!--                    <div class="tipo">
-                                            <h1>Aves</h1>
-                                        </div>-->
+                    <img src="<?= REQUIRE_PATH; ?>/img/icon-aves.png" alt=""/>                    
                 </a>
 
                 <a href="#suino" class="category_item" category="suino">
-                    <img src="<?= REQUIRE_PATH; ?>/img/icon-suino.png" alt=""/>
-                    <!--                    <div class="tipo">
-                                            <h1>Suinos</h1>
-                                        </div>-->
+                    <img src="<?= REQUIRE_PATH; ?>/img/icon-suino.png" alt=""/>                 
                 </a>
 
                 <a href="#bovino" class="category_item" category="bovino">                   
-                    <img src="<?= REQUIRE_PATH; ?>/img/icon-bovino.png" alt=""/>
-                    <!--                    <div class="tipo">
-                                            <h1> Bovinos</h1>
-                                        </div>-->
+                    <img src="<?= REQUIRE_PATH; ?>/img/icon-bovino.png" alt=""/>                   
                 </a>	
 
                 <a href="#outros" class="category_item" category="outros">                    
-                    <img src="<?= REQUIRE_PATH; ?>/img/icon-outros.png" alt=""/>
-                    <!--                    <div class="tipo">
-                                            <h1>Outros</h1>
-                                        </div>-->
+                    <img src="<?= REQUIRE_PATH; ?>/img/icon-outros.png" alt=""/>                    
                 </a>
-
             </div>
 
             <!-------------------------SECAO 01 DA PAGINA PRINCIPAL------------- -->

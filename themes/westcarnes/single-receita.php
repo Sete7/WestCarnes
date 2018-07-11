@@ -1,6 +1,6 @@
 <div class="banner-single-receita container">
     <div class="box-single-rec">
-        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/banner/banner-single-receitas5.jpg" alt=""/>
+        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/banner/banner-receitas.jpg" alt=""/>
         <img class="img-mob"  src="<?= REQUIRE_PATH; ?>/img/mobile/banner-mobi-receita.jpg" alt=""/>
         <div class="box-single-camada"></div>
     </div>
@@ -12,13 +12,14 @@
         <div class="box-desc-receita">
             <div class="desc-receita">
                 <div class="des-receita">
-                    <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt="" style="width: 50%;"/>
+                    <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt="" style="width: 100%;"/>
                     <div class="box-titulo-sing">
                         <h1 class="">Almôndegas recheadas</h1>
                     </div>
                 </div>
-                
-                <h1>Ingredientes</h1>
+                <div class="box-titulo-ingr">
+                    <h1>Ingredientes</h1>
+                </div>
                 <p>
                     1 pedaço de patinho de aproximadamente 150g moído duas vezes; <br>
                     3 colheres (sopa) de salsinha picada;<br>

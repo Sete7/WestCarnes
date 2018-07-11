@@ -1,0 +1,146 @@
+<?php
+$categoria = new Categoria();
+$categoriaController = new CategoriaController();
+$helper = new Helper();
+$upload = new Upload();
+
+$resultado = "";
+$titulo = "";
+$btnCadastrar = filter_input(INPUT_POST, 'btnCadastrar', FILTER_SANITIZE_STRING);
+
+if ($btnCadastrar) :
+    $categoria->setTitulo(filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING));
+    $url = $helper->Name($categoria->getTitulo());
+    $categoria->setUrl($url);
+    $categoria->setStatus(filter_input(INPUT_POST, 'slStatus', FILTER_SANITIZE_NUMBER_INT));
+    $categoria->setDescricao(filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_STRING));
+    $categoria->setDescricao(filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_STRING));
+    $categoria->setData(date("Y-m-d H:i:s"));
+
+    //imagem esta recebendo files imagemArtigo
+    $imagem = $_FILES['imagemArtigo'];
+    $nomeProd = $helper->Name($categoria->getTitulo());
+    //recebendo a imagem, nome do produto, tamanho da imagem, pasta
+    $upload->Image($imagem, $nomeProd, 1000, 'produtos');
+    //setando a imagem
+    $nomeImagem = $upload->getResult();
+    $categoria->setThumb($nomeImagem);
+
+    if ($categoriaController->Cadastrar($categoria)):
+        $resultado = '<div class="alert alert-success">                                            
+        <span><b> Cadastro </b> efetuado com sucesso </span>
+        </div>';
+    else:
+        $resultado = '<div class="alert alert-danger">                                            
+        <span><b> Erro ao cadastrar - Favor preencha todos os campos</b></span>
+        </div>';
+    endif;
+endif;
+?>
+
+<div class="main-panel">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a class="navbar-brand" href="?pagina=listarProduto">Cadastrar Produtos</a>
+            </div>
+            <?php require_once './inc/header_top.php'; ?>
+        </div>
+    </nav>
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <form method="post" enctype="multipart/form-data">
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Cadastrar Produto</h4>                                
+                            </div>
+
+                            <div class="content">
+
+                                <form method="post" enctype="multipart/form-data" id="frmCategoria" name="frmCategoria" novalidate onSubmit="return validaCadastro();" >
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>CAPA (JPG 800X1000PX):</label>
+                                                <input type="file" class="form-control border-input uploader" id="imagemArtigo"  name="imagemArtigo">
+                                            </div>
+                                        </div>                                    
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Categoria</label>
+                                                <input type="text" name="txtTitulo" id="txtTitulo" class="form-control border-input" placeholder="Produto" value="">
+                                                <span class="msg-error msg-titulo"></span>
+                                            </div>
+                                        </div>                                    
+                                    </div>                                   
+
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label>Breve Descrição </label>
+                                                <input type="text" name="descricao" class="form-control border-input" placeholder="Descrição da Categoria">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="slStatus">Status</label>
+                                                <select name="slStatus" class="form-control border-input">
+                                                    <option value="">Selecione o status</option>
+                                                    <option value="1">Ativo</option>
+                                                    <option value="2">Inativo</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <?= $resultado; ?>
+                                        </div>
+
+
+                                    </div>                                    
+
+                                    <div class="text-center">
+                                        <input type="submit" class="btn btn-success btn-fill btn-wd" name="btnCadastrar" value="Cadastrar">
+                                        <a href="?pagina=listarCategoria" class="btn btn-info btn-fill btn-wd">Listar Categoria</a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="col-lg-4 col-md-5">
+                    <div class="card card-user">
+                        <div class="image">
+                            <img id="img-uploaded" src="assets/img/no_image.jpg" alt="Sua imagem">
+                        </div>                        
+                    </div>
+                    <div class="card">
+                        <div class="row" id="image_preview">                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,187 @@
+<?php
+
+$categoriaController = new CategoriaController();
+$receitas = new Receita();
+$receitasControler = new ReceitaController();
+$helper = new Helper();
+$upload = new Upload();
+$resultado = "";
+?>
+<div class="main-panel">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a class="navbar-brand" href="?pagina=listarProduto">Cadastrar Receita</a>
+            </div>
+            <?php require_once './inc/header_top.php'; ?>
+        </div>
+    </nav>
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <form method="post" enctype="multipart/form-data">
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Cadastrar Nova Receita</h4>
+
+                                <?php
+                                $btnCadastrar = filter_input(INPUT_POST, 'btnCadastrar', FILTER_SANITIZE_STRING);
+                                if ($btnCadastrar):
+                                    $receitas->setTitulo(filter_input(INPUT_POST, 'txtTitulo', FILTER_SANITIZE_STRING));
+                                    $url = $helper->Name($receitas->getTitulo());
+                                    $receitas->setUrl($url);
+                                    $receitas->setCategoria(filter_input(INPUT_POST, 'slCategoria', FILTER_SANITIZE_NUMBER_INT));
+                                    $receitas->setTipo('receitas');
+                                    $receitas->setStatus(filter_input(INPUT_POST, 'slStatus', FILTER_SANITIZE_NUMBER_INT));
+                                    $receitas->setDescricao(filter_input(INPUT_POST, 'txtDescricao', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+                                    $receitas->setData(date('Y-m-d H:i:s'));                                    
+
+                                     //imagem esta recebendo files imagemArtigo
+                                    $imagem = $_FILES['imagemArtigo'];
+                                    $nomeRec = $helper->Name($receitas->getTitulo());
+                                        //recebendo a imagem, nome do produto, tamanho da imagem, pasta
+                                    $upload->Image($imagem, $nomeRec, 1000, 'produtos');
+                                      //setando a imagem
+                                    $nomeImagem = $upload->getResult();
+                                    $receitas->setThumb($nomeImagem);
+    
+                                    //cadastro do produto
+                                    if ($receitasControler->Cadastrar($receitas)):
+
+                                        //header("location: ?pagina=listarProduto");
+                                        $resultado = '<div class="alert alert-success">
+                                                    <button type="button" aria-hidden="true" class="close">×</button>
+                                                    <span><b> Cadastro efetuado com sucesso - </b></span>
+                                                </div>';
+
+
+                                    else:
+                                        $resultado = '<div class="alert alert-danger">
+                                                        <button type="button" aria-hidden="true" class="close">×</button>
+                                                        <span><b> Erro ao cadastrar - Favor preencha todos os campos</b></span>
+                                                    </div>';
+                                    endif;
+                                endif;
+                                ?>
+
+                            </div>
+
+                            <div class="content">
+
+                                <form method="post" enctype="multipart/form-data" id="frmCategoria" name="frmCategoria" novalidate onSubmit="return validaCadastro();" >
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>CAPA (JPG 800X1000PX):</label>
+                                                <input type="file" class="form-control border-input uploader" id="imagemArtigo"  name="imagemArtigo">
+                                            </div>
+                                        </div>                                    
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Receita</label>
+                                                <input type="text" name="txtTitulo" id="txtTitulo" class="form-control border-input" placeholder="Receita" value="">
+                                                <span class="msg-error msg-titulo"></span>
+                                            </div>
+                                        </div>                                    
+                                    </div>                                   
+
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="slCategoria">Categoria</label>
+                                                <select name="slCategoria" id="slCategoria" class="form-control border-input">
+                                                    <?php
+                                                    $listarCategoria = $categoriaController->ListarTodasCategorias();
+                                                    if ($listarCategoria == NULL):
+                                                        echo '<option value="">Não existem categoria cadastradas</option>';
+                                                    else:
+                                                        echo '<option value="">Selecione a categoria</option>';
+                                                        foreach ($listarCategoria as $cat):
+                                                            ?>
+                                                            <option value="<?= $cat->getCod(); ?>"><?= $cat->getTitulo(); ?></option>";
+                                                            <?php
+                                                        endforeach;
+                                                    endif;
+                                                    ?>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="slStatus">Status</label>
+                                                <select name="slStatus" id="slStatus" class="form-control border-input">
+                                                    <option value="">Selecione o Status</option>
+                                                    <option value="1">Ativo</option>
+                                                    <option value="2">Bloqueado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Descrição da Receita</label>
+                                                <textarea rows="3" name="txtDescricao" class="form-control border-input" placeholder="Descrição do Receita" value="">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12">
+                                        <?= $resultado; ?>
+                                    </div>                                 
+
+                                    <div class="text-center">
+                                        <input type="submit" class="btn btn-info btn-fill btn-wd" name="btnCadastrar" value="Cadastrar Receita"/>
+                                        <a href="?pagina=listarReceita" class="btn btn-warning btn-fill btn-wd" >Listar Receita</a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="col-lg-4 col-md-5">
+                    <div class="card card-user">
+                        <div class="image">
+                            <img id="img-uploaded" src="assets/img/no_image.jpg" alt="Sua imagem">
+                        </div>                        
+                    </div>
+                    <div class="card">
+                        <div class="row" id="image_preview">                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function preview_images()
+        {
+            var total_file = document.getElementById("images").files.length;
+            for (var i = 0; i < total_file; i++)
+            {
+                $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='" + URL.createObjectURL(event.target.files[i]) + "'></div>");
+            }
+        }
+    </script>

@@ -2,8 +2,8 @@
 <section class="banner container">
     <h1 class="font-zero">Quem Somos</h1>
     <article class="box_quem_somos"> 
-        <h1 class="font-zero">Familia West Carnes</h1>                
-        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/fundo-quem-somos_1.png" alt="Banner Page WestCarnes"/>
+        <h1 class="font-zero">Familia West Carnes</h1>                       
+        <img class="img-desk"  src="<?= REQUIRE_PATH; ?>/img/banner/banner-quem-somos.jpg" alt="Banner Page WestCarnes"/>      
         <img class="img-mob" src="<?= REQUIRE_PATH; ?>/img/mobile/banner-mobi-quem.jpg" alt=""/>        
     </article>	
 </section>
