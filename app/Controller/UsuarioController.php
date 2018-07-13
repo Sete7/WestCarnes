@@ -1,11 +1,5 @@
 <?php
 
-//if (file_exists('../DAL/UsuarioDAO.php')):
-//    require_once '../DAL/UsuarioDAO.php';
-//elseif (file_exists('DAL/UsuarioDAO.php')):
-//    require_once 'DAL/UsuarioDAO.php';
-//endif;
-
 class UsuarioController {
 
     private $usuarioDAO;
@@ -15,7 +9,12 @@ class UsuarioController {
     }
 
     public function Cadastrar(Usuario $usuario) {
-        return $this->usuarioDAO->Cadastrar($usuario);
+        if (
+                strlen($usuario->getUsuario()) > 3 && strlen($usuario->getEmail()) > 3 && strlen($usuario->getStatus()) > 0 && strlen($usuario->getStatus()) <= 3 && strlen($usuario->getNome()) > 3 && strlen($usuario->getNivel()) > 0 && strlen($usuario->getNivel()) <= 3 && strlen($usuario->getCep()) != '' && strlen($usuario->getBairro()) != '' && strlen($usuario->getCidade()) != '' && strlen($usuario->getEndereco()) != '' && strlen($usuario->getEstado()) != ''):
+            return $this->usuarioDAO->Cadastrar($usuario);
+        else:
+            return false;
+        endif;
     }
 
     public function Atualizar(Usuario $usuario) {

@@ -14,7 +14,7 @@ class CategoriaDAO {
 
     public function Cadastrar(Categoria $categoria) {
         try {
-            $sql = "INSERT INTO categoria (titulo, url, thumb, descricao, status, data) VALUES(:titulo,:thumb, :url, :descricao, :status, :data)";
+            $sql = "INSERT INTO categoria (titulo, thumb, url, descricao, status, data) VALUES(:titulo,:thumb, :url, :descricao, :status, :data)";
             $param = array(
                 ":titulo" => $categoria->getTitulo(),
                 ":thumb" => $categoria->getThumb(),
@@ -110,10 +110,9 @@ class CategoriaDAO {
 
     public function Atualizar(Categoria $categoria) {
         try {
-            $sql = "UPDATE categoria SET thumb = :thumb, titulo = :titulo, url = :url, descricao = :descricao, status = :status, data = :data WHERE cod = :cod";
+            $sql = "UPDATE categoria SET titulo = :titulo, url = :url, descricao = :descricao, status = :status, data = :data WHERE cod = :cod";
             $param = array(
-                ":cod" => $categoria->getCod(),
-                ":thumb" => $categoria->getThumb(),
+                ":cod" => $categoria->getCod(),         
                 ":titulo" => $categoria->getTitulo(),
                 ":url" => $categoria->getUrl(),
                 ":descricao" => $categoria->getDescricao(),

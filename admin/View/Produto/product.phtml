@@ -7,7 +7,6 @@ $helper = new Helper();
 $upload = new Upload();
 
 $resultado = "";
-
 ?>
 <div class="main-panel">
     <nav class="navbar navbar-default">
@@ -41,7 +40,7 @@ $resultado = "";
                                     $produto->setTitulo(filter_input(INPUT_POST, 'txtTitulo', FILTER_SANITIZE_STRING));
                                     $url = $helper->Name($produto->getTitulo());
                                     $produto->setUrl($url);
-                                    $produto->setCategoria(filter_input(INPUT_POST, 'slCategoria', FILTER_SANITIZE_NUMBER_INT));                                    
+                                    $produto->setCategoria(filter_input(INPUT_POST, 'slCategoria', FILTER_SANITIZE_NUMBER_INT));
                                     $produto->setTipo('produto');
                                     $produto->setStatus(filter_input(INPUT_POST, 'slStatus', FILTER_SANITIZE_NUMBER_INT));
                                     $produto->setDescricao(filter_input(INPUT_POST, 'txtDescricao', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -58,7 +57,7 @@ $resultado = "";
                                     $upload->Image($imagem, $nomeProd, 1000, 'produtos');
                                     //setando a imagem
                                     $nomeImagem = $upload->getResult();
-                                    $produto->setThumb($nomeImagem);                                   
+                                    $produto->setThumb($nomeImagem);
 
 
                                     //cadastro do produto
@@ -78,12 +77,11 @@ $resultado = "";
                                                     </div>';
                                     endif;
                                 endif;
-                                
                                 ?>
                             </div>
-                            
+
                             <div class="content">
-                                
+
                                 <form method="post" enctype="multipart/form-data" id="frmCategoria" name="frmCategoria" novalidate onSubmit="return validaCadastro();" >
                                     <div class="row">
                                         <div class="col-md-12">
@@ -109,24 +107,24 @@ $resultado = "";
                                             <div class="form-group">
                                                 <label for="slCategoria">Categoria</label>
                                                 <select name="slCategoria" id="slCategoria" class="form-control border-input">
-                                                    <?php
-                                                        $listarCategoria = $categoriaController->ListarTodasCategorias();
-                                                        if($listarCategoria == NULL):
-                                                            echo '<option value="">Não existem categoria cadastradas</option>';
-                                                        else:
-                                                            echo '<option value="">Selecione a categoria</option>';
-                                                            foreach ($listarCategoria as $cat ):
-                                                                ?>
-                                                                    <option value="<?= $cat->getCod();?>"><?= $cat->getTitulo();?></option>";
-                                                                <?php                                                               
-                                                            endforeach;
-                                                        endif;
+<?php
+$listarCategoria = $categoriaController->ListarTodasCategorias();
+if ($listarCategoria == NULL):
+    echo '<option value="">Não existem categoria cadastradas</option>';
+else:
+    echo '<option value="">Selecione a categoria</option>';
+    foreach ($listarCategoria as $cat):
+        ?>
+                                                            <option value="<?= $cat->getCod(); ?>"><?= $cat->getTitulo(); ?></option>";
+                                                            <?php
+                                                        endforeach;
+                                                    endif;
                                                     ?>
-                                                    
+
                                                 </select>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="slStatus">Status</label>
@@ -168,10 +166,10 @@ $resultado = "";
                                     </div>                                    
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <?= $resultado; ?>
+<?= $resultado; ?>
                                         </div>
 
-                                        
+
                                     </div>                                    
 
                                     <div class="text-center">
@@ -199,17 +197,18 @@ $resultado = "";
             </div>
         </div>
     </div>
+</div>
 
-    <script type="text/javascript">
-        function preview_images()
+<script type="text/javascript">
+    function preview_images()
+    {
+        var total_file = document.getElementById("images").files.length;
+        for (var i = 0; i < total_file; i++)
         {
-            var total_file = document.getElementById("images").files.length;
-            for (var i = 0; i < total_file; i++)
-            {
-                $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='" + URL.createObjectURL(event.target.files[i]) + "'></div>");
-            }
+            $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='" + URL.createObjectURL(event.target.files[i]) + "'></div>");
         }
-    </script>
-    
+    }
+</script>
+
 
 

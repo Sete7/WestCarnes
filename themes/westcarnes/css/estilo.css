@@ -120,11 +120,10 @@
 .main_receita{position: relative;}
 .main_receita .box-receita{width: 100%;}
 .box-titulo-receitas{width: 100%;float: left;background: #FFBF00; margin-bottom: 50px;border-top: 3px solid #CA9800;border-bottom: 3px solid #CA9800;}
-.box-titulo-receitas h1{width: 30%;color: #b78b05; text-align: left; float: left;}
-.box-titulo-receitas .box-lista-cat{padding: 0;margin: 0;position: absolute;right: 0;width: 50%;margin:0 10%;}
-.box-titulo-receitas .box-lista-cat .lista-categoria{position: relative;width: 100%;list-style: none;}
-.box-titulo-receitas .box-lista-cat .lista-categoria li{padding: 5px 6px;margin: 0;float: left;}
-.box-titulo-receitas .box-lista-cat .lista-categoria li a{width: 100%;padding: 5px 6px;margin: 0;color: #000;font-weight: bold;}
+.box-titulo-receitas h1{width: 100%;color: #b78b05; text-align: center;}
+
+.categoria-receita{width: 100%;float: left;}
+.title-categoria{width: 100%;font-weight: bold;}
 .main_receita .box-receita a {width: calc(25% - 20px); margin: 25px 10px;float: left;border-radius: 8px;transition: 0.3s;}
 .main_receita .box-receita a:hover {box-shadow: 1px 3px 6px 3px #756969;}
 .main_receita .box-receita a .thumb-receita img{border-radius: 8px 8px 0 0;}

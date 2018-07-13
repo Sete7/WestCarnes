@@ -40,7 +40,7 @@ if ($btnCadastrar):
     else:
         $resultado = '<div class="alert alert-danger">
             <button type="button" aria-hidden="true" class="close">×</button>
-            <span><b> Erro ao cadastrar, tente mais tarde - </b></span>
+            <span><b> Erro ao cadastrar, preencha todos os campos ou tente mais tarde. </b></span>
         </div>';
     endif;
     
@@ -121,13 +121,14 @@ endif;
                                             <input type="text" name="txtSenha" class="form-control border-input" placeholder="Senha" value="">
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nivel</label>
                                             <select name="slNivel" class="form-control border-input">
                                                 <option value="">Selecione o Nível</option>
-                                                <option value="1">Super Admin</option>
-                                                <option value="2">Admin</option>
+                                                <option value="1">Admin</option>
+<!--                                                <option value="2">Admin</option>-->
                                             </select>
 
                                         </div>

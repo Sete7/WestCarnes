@@ -8,7 +8,7 @@ class CategoriaController {
     }
     
     public function Cadastrar(Categoria $categoria){         
-       if(strlen($categoria->getTitulo()) > 3 && strlen($categoria->getStatus()) > 0 && strlen($categoria->getStatus()) <=2 && strlen($categoria->getDescricao())):
+       if(strlen($categoria->getTitulo()) > 3 && strlen($categoria->getThumb())  != '' && strlen($categoria->getStatus()) > 0 && strlen($categoria->getStatus()) <=2 && strlen($categoria->getDescricao())):
             return $this->categoriaDAO->Cadastrar($categoria);
         else:
             return false;

@@ -9,8 +9,12 @@ class ReceitaController {
         $this->receitaDAO = new ReceitaDAO();
     }
 
-    public function Cadastrar(Receita $receita) {
-        return $this->receitaDAO->Cadastrar($receita);
+    public function Cadastrar(Receita $receita) { 
+         if (strlen($receita->getTitulo()) > 3 && $receita->getCategoria() != '' && strlen($receita->getStatus()) > 0 && strlen($receita->getStatus()) <= 3 && strlen($receita->getDescricao()) > 10 && $receita->getThumb() != ''):
+            return $this->receitaDAO->Cadastrar($receita);
+        else:
+            return false;
+        endif;
     }
 
     public function ListarReceita($inicio = null, $quantidade = null) {
@@ -39,5 +43,10 @@ class ReceitaController {
     
     public function AlterarImagem($cod, $thumb) {
         return $this->receitaDAO->AlterarImagem($cod, $thumb);
+    }
+    
+    // ----------------------------------------SITE RECEITA ----------------------------------;
+    public function listarReceitaCat($categoria, $inicio = null, $quantidade = null) {
+        return $this->receitaDAO->listarReceitaCat($categoria, $inicio, $quantidade);
     }
 }

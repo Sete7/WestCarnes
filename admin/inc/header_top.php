@@ -17,7 +17,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li><a href="?pagina=categoria">Cadastrar</a></li>
-                <li><a href="?pagina=categoriaListar">Listar</a></li>
+                <li><a href="?pagina=listarCategoria">Listar</a></li>
             </ul>
         </li>
         <li class="dropdown">

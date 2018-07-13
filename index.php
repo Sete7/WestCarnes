@@ -8,12 +8,12 @@
         <title>West Carnes</title>      
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet">        
-        <link href="<?= REQUIRE_PATH; ?>/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= REQUIRE_PATH; ?>/css/boot.css" rel="stylesheet" type="text/css"/>        
-        <link href="<?= REQUIRE_PATH; ?>/img/favicon.png" rel="shortcut icon">
-        <link href="<?= REQUIRE_PATH; ?>/css/estilo.css" rel="stylesheet" type="text/css"/>         
-        <link href="<?= REQUIRE_PATH; ?>/css/layerslider.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= REQUIRE_PATH; ?>/css/media.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= INCLUDE_PATH; ?>/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= INCLUDE_PATH; ?>/css/boot.css" rel="stylesheet" type="text/css"/>        
+        <link href="<?= INCLUDE_PATH; ?>/img/favicon.png" rel="shortcut icon">
+        <link href="<?= INCLUDE_PATH; ?>/css/estilo.css" rel="stylesheet" type="text/css"/>         
+        <link href="<?= INCLUDE_PATH; ?>/css/layerslider.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= INCLUDE_PATH; ?>/css/media.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 

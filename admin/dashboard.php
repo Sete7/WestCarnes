@@ -24,8 +24,7 @@ $arrayPaginas = array(
     "listarTipo" => "View/TipoReceita/listarTipo.phtml",
     
     "slider" => "View/Slider/slider.phtml",
-    "listSlider" => "View/Slider/listSlider.phtml",
-    
+    "listSlider" => "View/Slider/listSlider.phtml",    
     "updateSlider" => "View/Slider/updateSlider.phtml",
     "updateThumb" => "View/Slider/updateThumb.phtml"
 );

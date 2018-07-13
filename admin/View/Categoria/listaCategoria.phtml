@@ -75,7 +75,9 @@ $listarCategoria = $categoriaController->ListarCategoria($inicio, $quantidade);
                                 </thead>
                                 <tbody>
                                 <?php
+                           
                                 if ($listarCategoria == null):
+                                    
                                     echo '<td colspan="7">Nesse momento não temo(s) categoria(s) cadastrada(s)</td>';
 
                                 else:

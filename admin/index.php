@@ -8,7 +8,6 @@ require_once '../app/config.php';
 
 $usuarioController = new UsuarioController;
 $usuarioModel = new Usuario();
-
 $resultado = "";
 
 if ($usuarioController->isLoggedIn()):
