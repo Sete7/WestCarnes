@@ -27,7 +27,8 @@ if ($btnEnviar):
         //Define o corpo do email
         $mailer->MsgHTML("$mensagem");
         $mailer->Send();
-        echo "<scrpit>alert(Mensagem enviada com sucesso " . $nome . "! Em breve entraremos em contato. Obrigado!);</scrpit>";
+        echo "<script>alert('Sr(a) $nome sua mensagem enviada com sucesso! Em breve entraremos em contato! Horário de atendimento: Segunda a Sexta: 08h às 18h');</script>";
+        echo "<script>window.location = 'http://www.westcarnes.com.br/novo/contato'</script>";
     } catch (phpmailerException $e) {
         echo $e->errorMessage(); //Mensagem de erro costumizada do PHPMailer
     }
@@ -36,26 +37,15 @@ endif;
 <form class="form_contato" name="form" method="POST" action="">
     <h1 style="color: #fff;">Informações de Contato</h1>
     <label for="nome">NOME</label>
-    <input type="text" name="txtnome" id="nome" class="nome">
+    <input type="text" name="txtnome" id="nome" class="nome" required="">
     <label for="email">EMAIL</label>
-    <input type="email" name="txtemail" class="email" id="email" >
+    <input type="email" name="txtemail" class="email" id="email" required="" >
     <label for="telefone">TELEFONE</label>
-    <input type="tel" name="txtfone" id="telefone" class="telefone">                            
+    <input type="tel" name="txtfone" id="telefone" class="telefone" required="">                            
     <label for="txtmsg">SUGESTÃO</label>
-    <textarea id="txtmsg" name="txtmsg" class="textSugestao" cols="100" rows="10"></textarea>
+    <textarea id="txtmsg" name="txtmsg" class="textSugestao" cols="100" rows="10" required=""></textarea>
 
     <input type="submit" name="btnEnviar" class="enviar" onclick="return validaFormContato" value="ENVIAR">
 </form>
-<script>
-   function validaFormContato(){
-      var nome = form_contato.txtnome.value;
-      
-      if(nome == ""){
-          alert("Digite em todos os campos");
-          form_contato.txtnome.focus();
-          return false;
-      }
-   }
-</script>
 
 
