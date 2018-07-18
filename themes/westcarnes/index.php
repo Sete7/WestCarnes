@@ -15,7 +15,6 @@
         <div class="ls-slide" data-ls="slidedelay: 4000; transition2d: 11;">
             <img src="<?= REQUIRE_PATH; ?>/img/slyde_2.jpeg"  class="ls-bg" alt="Slide background"/>
             <img src="<?= REQUIRE_PATH; ?>/img/frases.png"  class="ls-l" style="top:340px;left:100px;white-space: nowrap;" data-ls="durationin:1500;delayin:500;rotatein:20;rotatexin:30;scalexin:1.5;scaleyin:1.5;transformoriginin:left 50% 0;durationout:750;rotateout:20;rotatexout:-30;scalexout:0;scaleyout:0;transformoriginout:left 50% 0;" alt=""/>
-            <!--<img src="<?= REQUIRE_PATH; ?>/img/faca.png" class="ls-l" style="top:170px;left:450px;white-space: nowrap;" data-ls="durationin:1500;delayin:500;rotatein:20;rotatexin:30;scalexin:1.5;scaleyin:1.5;transformoriginin:left 50% 0;durationout:750;rotateout:20;rotatexout:-30;scalexout:0;scaleyout:0;transformoriginout:left 50% 0;" alt=""/>-->
         </div>
     </div>	
     <div class="colo-rgba-slyde"></div>
@@ -43,16 +42,15 @@
                 <!---------------------------------------------DESCRIÇÃO DE QUEM SOMOS ----------------------------------------------->           
                 <div class="desc_quem">
                     <p>
-                        Lorem ipsum dolor sit amet, his posse legere id. Nec prima voluptaria posidonium eu,
-                        ad quo tale legere epicurei. Has euismod molestiae gloriatur eu. Populo maiestatis ne eos.
-                        No eum probo expetenda. 
+                        A empresa West Carnes foi fundada no ano de 1998 na cidade Brasília
+                        pelo Senhor (nome do fundador) e sua principal missão é oferecer soluções para empresas de e-commerce e Internet.
+                        Atualmente contamos com XX funcionários e nossos principais clientes são
+                        (coloque aqui o que sua empresa vende ou oferece). 
                     </p>
                     <p>
-                        Mei te nisl repudiandae. Vidit elitr nam id, nec voluptatum
-                        liberavisse ei. No omittam percipit similique ius, sed te eius doming facilisis. Porro
-                        volutpat praesent eos no, ex sed meis quas appellantur, mei ea appetere molestiae. Omnes
-                        nostrud gloriatur at quo, no aliquid consulatu mea. Tota labitur ei quo, facete menandri
-                        suscipiantur in pri. 
+                        Fundada em 1998 pelo Senhor (nome do fundador), a principal missão da empresa
+                        West Carnes é oferecer (coloque aqui o que sua empresa vende ou oferece).
+                        Nossos principais clientes são (nome dos clientes atuais) e atualmente contamos com XX funcionários.  
                     </p>
 
                     <!-- ----------------------------------- LEIA MAIS ------------------------------------------ -->    

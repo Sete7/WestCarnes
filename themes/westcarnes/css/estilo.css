@@ -60,8 +60,8 @@
 
 .box_mais{float: left;padding-top: 60px;padding-bottom: 30px;}
 .box_mais .missao, .visao, .valor{background: #FFFF4D;margin-bottom: 10px;padding: 20px; }
-.box_mais h1{color: #000;margin-bottom: 25px; font-size: 2em; font-weight: bold;}
-.box_mais p{color: #000;}
+.box_mais h1{color: #000;margin-bottom: 10px;font-size: 2em; font-weight: bold;}
+.box_mais p{color: #000; margin-bottom: 20px;}
 
 /*---------------------------------- PAGE CONTATO ---------------------------------------*/
 .main_contato{background: #000;}
@@ -184,4 +184,6 @@
 /*-------------------------------------- COPY FOOTER --------------------------------------*/
 .copy{background: #E3DED3;}
 .copy .txt_copy{text-align: center;padding: 15px 0;font-weight: bold;}
+
+
 

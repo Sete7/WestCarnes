@@ -17,32 +17,26 @@
             <div class="content">
                 <div class="box_descricao column column-7">
                     <p>
-                        Lorem ipsum dolor sit amet, his posse legere id. Nec prima voluptaria posidonium 
-                        eu, ad quo tale legere epicurei.
+                        A empresa West Carnes foi fundada no ano de (ano da fundação, por exemplo, 1998) na cidade (nome da cidade)
+                        pelo Senhor (nome do fundador) e sua principal missão é oferecer soluções para empresas de e-commerce e Internet.
+                        Atualmente contamos com XX funcionários e nossos principais clientes são
+                        (coloque aqui o que sua empresa vende ou oferece). 
                     </p>
 
                     <p>
-                        Has euismod molestiae gloriatur eu. Populo maiestatis ne eos. No eum probo expetenda.
-
-                        Mei te nisl repudiandae.  Vidit elitr nam id, nec voluptatum liberavisse ei.
-                        No omittam percipit similique ius, sed te eius doming facilisis. Porro volutpat praesent eos no,
-                        ex sed meis quas appellantur, mei ea appetere molestiae. Omnes
-                        nostrud gloriatur at quo, no aliquid consulatu mea. Tota labitur ei quo, facete menandri suscipiantur in
-                        pri.
+                        Fundada em (ano da fundação, por exemplo, 1998) pelo Senhor (nome do fundador), a principal missão da empresa
+                        (nome da empresa) é oferecer (coloque aqui o que sua empresa vende ou oferece).
+                        Nossos principais clientes são (nome dos clientes atuais) e atualmente contamos com XX funcionários. 
                     </p>
 
                     <p>
-                        Lorem ipsum dolor sit amet, his posse legere id. Nec prima voluptaria posidonium eu, ad quo tale
-                        legere epicurei. Has euismod molestiae gloriatur eu. Populo maiestatis ne eos. No eum 
-                        probo expetenda.
+                        A missão da empresa (nome da empresa) é fornecer soluções para empresas de e-commerce e Internet.
+                        Nossos principais clientes são (coloque aqui o que sua empresa vende ou oferece). Fundada em 
+                        (ano da fundação, por exemplo, 1998) pelo Senhor (nome do fundador), na cidade (nome da cidade),
+                        atualmente contamos com (quantidade de pessoas que trabalham na empresa) funcionários.
                     </p>
 
-                    <p>
-                        Mei te nisl repudiandae. Vidit elitr nam id, nec voluptatum liberavisse ei. No omittam percipit
-                        similique ius, sed te eius doming facilisis. Porro volutpat praesent eos no,
-                        ex sed meis quas appellantur, mei ea appetere molestiae. Omnes nostrud gloriatur at quo,
-                        no aliquid consulatu mea. Tota labitur ei quo, facete menandri suscipiantur in pri.
-                    </p>
+                    
                 </div>
 
                 <div class="column column-1">..</div>
@@ -51,25 +45,26 @@
                     <div class="missao">
                         <h1>MISSÃO</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, his posse legere id. Nec prima voluptaria posidonium
-                            eu, ad quo tale legere epicurei. Has euismod molestiae gloriatur eu. Populo
-                            maiestatis ne eos. No eum probo expetenda.
+                            Proporcionar produtos de excelêcia com melhores preços e atendimento de qualidade
+                            para garantir a total satisfação de nossos clientes.
                         </p>
                     </div>
                     <div class="visao">
                         <h1>VISÃO</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, his posse legere id. Nec prima voluptaria posidonium
-                            eu, ad quo tale legere epicurei. Has euismod molestiae gloriatur eu. Populo
-                            maiestatis ne eos. No eum probo expetenda.
+                            Ser reconhecida como a melhor casa de carnes do Brasil no segmento, através de qualidade no atendimento
+                            e respeito pelo consumidor.
                         </p>
                     </div>
                     <div class="valor">
                         <h1>VALORES</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, his posse legere id. Nec prima voluptaria posidonium
-                            eu, ad quo tale legere epicurei. Has euismod molestiae gloriatur eu. Populo
-                            maiestatis ne eos. No eum probo expetenda.
+                            <i class="fa fa-check"></i> Qualidade<br/>
+                            <i class="fa fa-check"></i> Ética Profissional<br/>
+                            <i class="fa fa-check"></i> Honestidade<br/>
+                            <i class="fa fa-check"></i> Respeito<br/>
+                            <i class="fa fa-check"></i> Trabalho em Equipe<br/>
+                            <i class="fa fa-check"></i> Aprimoramento Técnico e profissional
                         </p>
                     </div>
                 </div>
