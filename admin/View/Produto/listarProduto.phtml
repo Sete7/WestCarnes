@@ -87,10 +87,10 @@ $listarProduto = $produtoController->ListarProduto($inicio, $quantidade);
                                                 <td><?= $pts->getTitulo(); ?></td>
                                                 <td><?= $pts->getCategoria()->getTitulo(); ?></td>
 
-                                                <td>R$ <?= $pts->getValor(); ?></td>                                  
+                                                <td>R$ <?= $pts->getValor(); ?></td>                                               
                                                 <td>
                                                     <?=
-                                                    ($pts->getStatus() == 1) ?
+                                                    ($pts->getStatus() == 1) ?                                                    
                                                             '<btn class="btn btn-fill btn-success btn-icon">'
                                                             . '<i class="fa ti-check"></i>'
                                                             . '</btn></td>' :

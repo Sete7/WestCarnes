@@ -40,6 +40,10 @@ class ReceitaController {
     public function retornaIdReceita($cod) {
         return $this->receitaDAO->retornaIdReceita($cod);
     }
+    //retorna dados do produto atraavés do cod
+    public function retornaUrlReceita($url) {
+        return $this->receitaDAO->retornaUrlReceita($url);
+    }
     
     public function AlterarImagem($cod, $thumb) {
         return $this->receitaDAO->AlterarImagem($cod, $thumb);

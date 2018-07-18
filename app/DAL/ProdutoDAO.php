@@ -1,7 +1,6 @@
 <?php
 
 require_once 'Banco.php';
-
 class ProdutoDAO {
 
     private $debug;
@@ -252,7 +251,7 @@ class ProdutoDAO {
 
     public function listarProdutoCat($categoria) {
         try {
-            $sql = "SELECT * FROM produto WHERE categoria = :categoria";
+            $sql = "SELECT * FROM produto WHERE categoria = :categoria and status = 1";
             $param = array(":categoria" => $categoria);
             $dt = $this->pdo->ExecuteQuery($sql, $param);
             $listarProduto = [];

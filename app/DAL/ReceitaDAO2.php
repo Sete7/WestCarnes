@@ -186,37 +186,6 @@ class ReceitaDAO {
             endif;
         }
     }
-    //retorna dados do produto atraavés do cod
-    public function retornaUrlReceita($url) {
-        try {
-            $sql = "SELECT r.cod, r.titulo, r.categoria, r.url, r.descricao, r.status, r.thumb, r.data,r.tipo,"
-                    . " c.cod as codCat, c.titulo as tituloCat FROM receita r "
-                    . "INNER JOIN categoria c ON r.categoria = c.cod WHERE r.url = :url";
-
-            $param = array(":url" => $url);
-            //Data Table
-            $pts = $this->pdo->ExecuteQueryOneRow($sql, $param);
-            $receita = new Receita();
-            $receita->setCod($pts['cod']);
-            $receita->setTitulo($pts['titulo']);
-            $receita->setUrl($pts['url']);
-            $receita->setDescricao($pts['descricao']);
-            $receita->setStatus($pts['status']);
-            $receita->setThumb($pts['thumb']);
-            $receita->setData($pts['data']);
-            $receita->setTipo($pts['tipo']);
-            $receita->getCategoria()->setCod($pts['codCat']);
-            $receita->getCategoria()->setTitulo($pts['tituloCat']);
-
-            return $receita;
-        } catch (PDOException $e) {
-            if ($this->debug):
-                echo "Erro {$e->getMessage()}, LINE {$e->getLine()}";
-            else:
-                return null;
-            endif;
-        }
-    }
 
     public function AlterarImagem($cod, $thumb) {
         try {
@@ -238,7 +207,7 @@ class ReceitaDAO {
 //    ----------------------------------------SITE RECEITA ----------------------------------;
     public function listarReceitaCat($categoria, $inicio = null, $quantidade = null) {
         try {
-            $sql = "SELECT * FROM receita WHERE categoria = :categoria and status = 1  LIMIT :inicio, :quantidade";
+            $sql = "SELECT * FROM receita WHERE categoria = :categoria LIMIT :inicio, :quantidade";
 
             $param = array(
                 ":categoria" => $categoria,

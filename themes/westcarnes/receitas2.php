@@ -33,29 +33,27 @@ $helper = new Helper();
                         else:
                             foreach($listaReceitas as $r):
                     ?>
-                    <div class="single-receita">
-                    <a href="<?= HOME; ?>/single-receita/<?= $r->getUrl();?>">                         
+                    <a href="<?= HOME; ?>/single-receita">                         
                         <div class="thumb-receita">
-                            <img src="<?= HOME; ?>/tim.php?src=upload/<?= $r->getThumb();?>&w=400&h=300&zc=0" alt="<?= $r->getTitulo();?>" title="<?= $r->getTitulo();?>"/>
+                            <img src="<?= HOME; ?>/upload/<?= $r->getThumb();?>" alt=""/>
                         </div>
                         <div class="desc-receita">
                             <spa><?= $r->getData(); ?></spa> 
                             <h2><?= $r->getTitulo();?></h2>
-                            <p><?= $helper->Words(html_entity_decode($r->getDescricao()), 20);?></p>
+                            <p><?= html_entity_decode($r->getTitulo());?></p>
                         </div>
                     </a>
-                    </div>
-                    <?php
-                    endforeach;
-                    ?>
                 </div>
-                <div class="box-btn-rec">
-                    <a href="<?= HOME; ?>/category/<?= $listaCat->getUrl();?>" class="btn btn-receitas">Veja Mais</a>
-                </div>
-                <?php       
+                <?php       endforeach;
                         endif;
                     endforeach;
                 ?>
+
+
+<!--                <div class="box-btn-rec">
+                    <button class="btn btn-receitas">Veja Mais</button>
+                </div>-->
+
             </div>
         </article>
 

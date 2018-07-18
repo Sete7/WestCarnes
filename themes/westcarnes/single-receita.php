@@ -1,7 +1,30 @@
+<?php
+//verificando a url e esta voltando url[0] = single, url[1] = exemplo-do-post
+$url = strip_tags(trim(filter_input(INPUT_GET, 'url', FILTER_DEFAULT)));
+$url = ($url ? $url : 'index');
+$url = explode('/', $url);
+$urlCod = $url[1];
+
+$receitaControler = new ReceitaController();
+$helper = new Helper();
+
+$listarProdutoUrl = $receitaControler->retornaUrlReceita($urlCod);
+
+if ($listarProdutoUrl == null):
+    echo 'Não existe produto cadastrado';
+
+else:
+    $codProd = $listarProdutoUrl->getCod();
+    $codCategoria = $listarProdutoUrl->getCategoria()->getCod();
+    $nomeCategoria = $listarProdutoUrl->getCategoria()->getTitulo();
+    $thumb = $listarProdutoUrl->getThumb();
+    $titulo = $listarProdutoUrl->getTitulo();
+    $descricao = html_entity_decode($listarProdutoUrl->getDescricao());
+?>
 <div class="banner-single-receita container">
     <div class="box-single-rec">
-        <img class="img-desk" src="<?= REQUIRE_PATH; ?>/img/banner/banner-receitas.jpg" alt=""/>
-        <img class="img-mob"  src="<?= REQUIRE_PATH; ?>/img/mobile/banner-mobi-receita.jpg" alt=""/>
+        <img class="img-desk" src="<?= INCLUDE_PATH; ?>/img/banner/banner-receitas.jpg" alt=""/>
+        <img class="img-mob"  src="<?= INCLUDE_PATH; ?>/img/mobile/banner-mobi-receita.jpg" alt=""/>
         <div class="box-single-camada"></div>
     </div>
 </div>
@@ -12,40 +35,13 @@
         <div class="box-desc-receita">
             <div class="desc-receita">
                 <div class="des-receita">
-                    <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt="" style="width: 100%;"/>
+                    <img src="../upload/<?= $thumb?>" alt="<?= $titulo?>" style="width: 100%;" title="<?= $titulo?>"/>
                     <div class="box-titulo-sing">
-                        <h1 class="">Almôndegas recheadas</h1>
+                        <h1 class=""><?= $titulo?></h1>
                     </div>
-                </div>
-                <div class="box-titulo-ingr">
-                    <h1>Ingredientes</h1>
-                </div>
+                </div>                
                 <p>
-                    1 pedaço de patinho de aproximadamente 150g moído duas vezes; <br>
-                    3 colheres (sopa) de salsinha picada;<br>
-                    6 cenouras cortadas em cubos;<br>
-                    6 dentes de alho amassados;<br>
-                    1 tablete de caldo de carne;<br>
-                    3 xícaras (chá) de abóbora-moranga cortada em cubos;<br>
-                    3 xícaras (chá) de repolho rasgado ou picado;<br>
-                    2 xícaras (chá) de mandioca cortada em cubos;<br>
-                    3 colheres (sopa) de molho de tomate;<br>
-                    1 litro de água;<br>
-                    5 colheres (sopa) de óleo;<br>
-                    1 cebola média picada;<br>
-                    Sal e pimenta a gosto  <br>
-                </p>
-                <h1>Modo de Preparo</h1>
-                <p>                    
-                    Refogue a carne moída com a cebola, 3 dentes de alho amassados e 3 colheres (sopa) de óleo. Coloque o molho de tomate e tempere com pimenta e o sal. Reserve.<br>
-
-                    Em outra panela, refogue com o alho e o óleo restantes as cenouras e a mandioca. Acrescente 4 xícaras (chá) de água.<br>
-
-                    Tampe a panela e deixe ferver por aproximadamente 30 minutos. Um pouco antes do término do tempo, acrescente a abóbora em cubos e deixe ferver.<br>
-
-                    Com os legumes cozidos e o caldo cremoso, adicione o caldo de carne e mexa com cuidado. Acrescente água até obter um caldo cremoso.<br>
-
-                    Abaixe o fogo, em seguida adicione a salsinha, as folhas de repolho e a carne moída pronta. Mexa com cuidado e deixe ferver por aproximadamente 5 minutos. Desligue o fogo e sirva quente.<br>
+                    <?= $descricao?>
                 </p>
             </div>
         </div>
@@ -54,28 +50,31 @@
         <div class="box-sidebar"> 
             <h1>Receitas em Destaque</h1>
             <?php
-            for ($i = 1; $i <= 5; $i++) {
+            $listaReceitas = $receitaControler->listarReceitaCat($codCategoria, 0, 6);            
+            foreach ($listaReceitas as $r) {
                 ?>
-                <a href="#" class="sidebar-receita">        
+                <a href="<?= $r->getUrl();?>" class="sidebar-receita">        
                     <div class="thumb-sidebar">        
                         <div class="img-sidebar">        
-                            <img src="<?= REQUIRE_PATH; ?>/img/almondegas.jpg" alt=""/>
+                            <img src="<?= HOME; ?>/upload/<?= $r->getThumb();?>" alt=""/>
                         </div>
                         <div class="desc-sid-rec">
-                            <span class="cat-tipo-pdr">Carne</span>
+                            <span class="cat-tipo-pdr"><?= $nomeCategoria;?></span>
                             <h5 class="titulo-relativo">
-                                SALADAS, MOLHOS E ACOMPANHAMENTOS
-                                PURÊ DE ABÓBORA
+                                <?= $r->getTitulo();?>
                             </h5>
-                            <p><span>por</span> Tereza S.</p>
+                            <p><span>Data:</span> <?= $helper->converteData($r->getData());?></p>
                         </div>        
                     </div>        
                 </a>
+            
                 <?php
             }
             ?>
         </div>
+        
 
     </div>
 </main>
-
+<?php
+endif;

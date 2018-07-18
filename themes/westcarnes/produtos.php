@@ -46,7 +46,7 @@ $produtoController = new ProdutoController();
                             </div>
                             <a href="<?= HOME; ?>/single-produto/<?= $key->getUrl(); ?>">
                                 <header class="header_img">  
-                                    <img src="<?= HOME; ?>/upload/<?= $key->getThumb(); ?>" alt=""/>
+                                    <img src="<?= HOME; ?>/tim.php?src=upload/<?= $key->getThumb(); ?>&w=380&h=250&zc=0" alt=""/>
                                 </header>
                             </a>
                         </article>
@@ -67,8 +67,8 @@ $produtoController = new ProdutoController();
                                 <h1><?= $key->getTitulo(); ?></h1>                               
                             </div>
                              <a href="<?= HOME; ?>/single-produto/<?= $key->getUrl(); ?>">
-                                <header class="header_img">  
-                                    <img src="<?= HOME; ?>/upload/<?= $key->getThumb(); ?>" alt=""/>
+                                <header class="header_img">                                      
+                                    <img src="<?= HOME; ?>/tim.php?src=upload/<?= $key->getThumb();?>&w=380&h=250&zc=0" alt=""/>
                                 </header>
                             </a>
                         </article>
@@ -89,7 +89,7 @@ $produtoController = new ProdutoController();
                             </div>
                             <a href="<?= HOME; ?>/single-produto/<?= $key->getUrl(); ?>">
                                 <header class="header_img">  
-                                    <img src="<?= HOME; ?>/upload/<?= $key->getThumb(); ?>" alt=""/>
+                                    <img src="<?= HOME; ?>/tim.php?src=upload/<?= $key->getThumb(); ?>&w=380&h=250&zc=0" alt=""/>
                                 </header>
                             </a>
                         </article>
@@ -111,7 +111,7 @@ $produtoController = new ProdutoController();
                             </div>
                              <a href="<?= HOME; ?>/single-produto/<?= $key->getUrl(); ?>">
                                 <header class="header_img">  
-                                    <img src="<?= HOME; ?>/upload/<?= $key->getThumb(); ?>" alt=""/>
+                                    <img src="<?= HOME; ?>/tim.php?src=upload/<?= $key->getThumb(); ?>&w=380&h=250&zc=0" alt=""/>
                                 </header>
                             </a>
                         </article>

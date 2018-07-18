@@ -88,7 +88,7 @@ $listarReceita = $receitaControler->ListarReceita($inicio, $quantidade);
                                                 <td><?= $rct->getTitulo(); ?></td>                                                
                                                 <td><?= $rct->getCategoria()->getTitulo(); ?></td>
                                                 <td><?= $rct->getUrl(); ?></td>
-                                                <td>
+                                                <td>                                            
                                                     <?=
                                                     ($rct->getStatus() == 1) ?
                                                             '<btn class="btn btn-fill btn-success btn-icon">'
@@ -97,6 +97,7 @@ $listarReceita = $receitaControler->ListarReceita($inicio, $quantidade);
                                                             '<btn class="btn btn-fill btn-danger btn-icon">'
                                                             . '<i class="fa fa-times"></i>'
                                                             . '</btn></td>'
+                                                            
                                                     ?>
                                                 </td>
 
