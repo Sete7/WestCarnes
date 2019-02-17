@@ -15,9 +15,9 @@ if ($btnEnviar):
         $mailer->SMTPAuth = true;
         $mailer->Port = 587; //Indica a porta de conexão para a saída de e-mails
         $mailer->CharSet  = utf8_decode($mensagem);        
-        $mailer->Host = 'mail.westcarnes.com.br'; //smtp.dominio.com.br
+        $mailer->Host = 'mail..com.br'; //smtp.dominio.com.br
         $mailer->Username = 'contato@westcarnes.com.br';
-        $mailer->Password = 'a1b2c3d4';
+        $mailer->Password = '';
 
         $mailer->SetFrom("$email", "$nome"); //Seu e-mail
          $mailer->AddAddress('financeiro@westcarnes.com.br', 'West Carnes');
