@@ -19,9 +19,9 @@ if ($btnEnviar):
         $mailer->SMTPSecure = false; // Define se é utilizado SSL/TLS - Mantenha o valor "false"
         $mailer->SMTPAutoTLS = false; // Define se, por padrão, será utilizado TLS - Mantenha o valor "false"
         $mailer->CharSet = utf8_decode($mensage);
-        $mailer->Host = 'mail.westcarnes.com.br'; //smtp.dominio.com.br
+        $mailer->Host = 'mail..com.br'; //smtp.dominio.com.br
         $mailer->Username = 'contato@westcarnes.com.br';
-        $mailer->Password = 'a1b2c3d4';
+        $mailer->Password = '';
 
         // DADOS DO REMETENTE
         $mailer->Sender = "$email"; // Conta de email existente e ativa em seu domínio
