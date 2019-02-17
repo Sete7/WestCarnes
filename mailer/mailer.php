@@ -12,7 +12,7 @@ If (isset($_POST['txtdest']))
     $mailer->Host = 'smtp.varejaodafartura.com'; //smtp.dominio.com.br
     $mailer->SMTPAuth = true; //define se haverá ou não autenticação no SMTP
     $mailer->Username = 'mkt@varejaodafartura.com'; //Informe o e-mai o completo
-    $mailer->Password = '@1b2c3d4'; //Senha da caixa postal
+    $mailer->Password = ''; //Senha da caixa postal
     $mailer->FromName = $assunto; //Nome que será exibido para o destinatário
     $mailer->From = 'mkt@varejaodafartura.com'; //Obrigatório ser a mesma caixa postal indicada em "username"
     $mailer->AddAddress('mkt@varejaodafartura.com','Varejao'); //Destinatários
